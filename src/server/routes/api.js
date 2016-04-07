@@ -1,8 +1,9 @@
 var express = require('express'),
-    Api = require('../api/v1'),
-    v1 = Api.v1(),
-    r = express.Router();
-
+    api = require('../api/v1/index'),
+    v1 = api.v1(),
+    r = express.Router(),
+    schema = require('kuark-schema'),
+    mesaj = require('../api/v1/API').API;
 
 r.route('/default/:SemaAdi')
     .get(function (_q, _r, next) {

@@ -1,5 +1,6 @@
 var router = require('express').Router(),
     ortak = require('../../../lib/ortak'),
+    l = require('kuark-extensions').winstonConfig,
     routes = {
         api: require('./api'),
         ekap: require("./ekap"),
@@ -10,18 +11,18 @@ var router = require('express').Router(),
         web: require('./web'),
         login: require('./login'),
         gc: require('./google_calendar')
-    },
-    passport = require('passport');
+    };
 
 function Router(app) {
 
 // Passport ayalarları
-    var passportConfig = require('../auth/passport')(passport);
-    app.use(passport.initialize());
-    app.use(passport.session());
+    var passport = require('passport'),
+        passportKuark = require('../auth/passportInit')(passport);
+    app.use(passportKuark.initialize());
+    app.use(passportKuark.session());
 
     function ensureAuthenticated(req, res, next) {
-        if(req.session.ss.kullanici && req.session.ss.kullanici.Id){
+        if (req.session.ss.kullanici && req.session.ss.kullanici.Id) {
             return next();
         }
         else {
@@ -83,8 +84,8 @@ function Router(app) {
 
             var fullUrl = _req.protocol + '://' + _req.get('host') + _req.originalUrl;
             console.log("\033[092m" +
-                "GELEN REQUEST:\n\tMETHOD\t: %s \n\tURL\t\t: %s \n\tBODY\t: %s" +
-                "\033[0m", _req.method, fullUrl, JSON.stringify(_req.body, null, 2));
+                "GELEN REQUEST:\n\tMETHOD\t: %s \n\tCOOKIE\t: %s \n\tURL\t: %s \n\tBODY\t: %s" +
+                "\033[0m", _req.method, _req.headers['set-cookie'], fullUrl, JSON.stringify(_req.body, null, 2));
             _next();
         })
 
@@ -110,7 +111,7 @@ function Router(app) {
             console.error("\nSORUNLU REQUEST:\n\tMETHOD\t: %s \n\tURL\t\t: %s \n\tBODY\t: %s", _req.method, fullUrl, JSON.stringify(_req.body, null, 2));
             ssr = [{"EnAlttakiHataSatirinaDustu": _err}];
 
-            if(_err.data && _err.data.returnType && _err.data.returnType=="json"){
+            if (_err.data && _err.data.returnType && _err.data.returnType == "json") {
                 return _res.json(_err);
             }
 

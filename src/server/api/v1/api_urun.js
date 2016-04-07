@@ -1,6 +1,11 @@
 'use strict';
 
-var db = require('kuark-db');
+var /** @type {DBModel} */
+     db = require('kuark-db')(),
+    extensions = require('kuark-extensions'),
+    exception = require('kuark-istisna'),
+    schema = require('kuark-schema'),
+    mesaj = require('./API').API;
 
 /**
  *
@@ -54,10 +59,10 @@ function APIUrun() {
                             }
                         }
                     },
-                    "sort": elastic.f_sort(_arama)
+                    "sort": db.elastic.f_sort(_arama)
                 };
 
-                return elastic.f_search({
+                return db.elastic.f_search({
                     method: "POST",
                     index: db.elastic.SABIT.INDEKS.APP,
                     type: db.elastic.SABIT.TIP.URUN,
@@ -69,7 +74,7 @@ function APIUrun() {
 
                     var sonuc = schema.f_create_default_object(schema.SCHEMA.LAZY_LOADING_RESPONSE);
                     sonuc.ToplamKayitSayisi = _resp[0].hits.total;
-                    sonuc.Data = _.pluck(_resp[0].hits.hits, "_source");
+                    sonuc.Data = _resp[0].hits.hits.pluckX("_source");
 
                     return sonuc;
                 });
@@ -154,7 +159,7 @@ function APIUrun() {
                 _r.status(200).send(mesaj.DELETE._200(parseInt(id), "", "Ürün Silindi"));
             })
             .fail(function (_err) {
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.DELETE._405("", _err.Baslik, _err.Icerik));
                 }
                 else {

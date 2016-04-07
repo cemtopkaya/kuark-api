@@ -9,7 +9,8 @@ var express = require('express'),
     Q = require('q'),
     redis = require('redis'),
     _ = require('lodash'),
-    db = require('kuark-db'),
+    /** @type {DBModel} */
+     db = require('kuark-db')(),
     api = require('../api/v1').API;
 
 var router = express.Router();

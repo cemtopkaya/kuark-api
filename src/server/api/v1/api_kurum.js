@@ -1,6 +1,11 @@
 'use strict';
 
-var db = require('kuark-db');
+var /** @type {DBModel} */
+     db = require('kuark-db')(),
+    extensions=require('kuark-extensions'),
+    exception=require('kuark-istisna'),
+    schema = require('kuark-schema'),
+    mesaj = require('./API').API;
 
 /**
  *
@@ -18,7 +23,7 @@ function APIKurum() {
      * @returns {*}
      */
     function f_elastic_sorgu(_query, _arama) {
-        return elastic.f_search({
+        return db.elastic.f_search({
             method: "POST",
             index: db.elastic.INDEKS.APP,
             type: db.elastic.TIP.KURUM,
@@ -28,7 +33,7 @@ function APIKurum() {
         }).then(function (_resp) {
             var sonuc = schema.f_create_default_object(schema.SCHEMA.LAZY_LOADING_RESPONSE);
             sonuc.ToplamKayitSayisi = _resp[0].hits.total;
-            sonuc.Data = _.pluck(_resp[0].hits.hits, "_source");
+            sonuc.Data = _resp[0].hits.hits.pluckX("_source");
             return sonuc;
         });
     }
@@ -62,7 +67,7 @@ function APIKurum() {
                                 }
                             }
                         },
-                        "sort": elastic.f_sort(arama)
+                        "sort": db.elastic.f_sort(arama)
                     };
                     return f_elastic_sorgu(query, arama);
                 });
@@ -76,7 +81,7 @@ function APIKurum() {
                         }
                     }
                 },
-                "sort": elastic.f_sort(arama)
+                "sort": db.elastic.f_sort(arama)
             };
             return f_elastic_sorgu(query, arama);
         }
@@ -183,7 +188,7 @@ function APIKurum() {
                 _r.status(200).send(mesaj.DELETE._200(id, "Kurum sil", "Kurum Başarıyla silindi."));
             })
             .fail(function (_err) {
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.DELETE._405("", _err.Baslik, _err.Icerik));
                 }
                 else {

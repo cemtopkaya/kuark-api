@@ -55,9 +55,11 @@ var express = require('express'),
     path = require('path'),
     _ = require('lodash'),
     xlsx = require('node-xlsx'),
-    db = require('kuark-db'),
+    /** @type {DBModel} */
+     db = require('kuark-db')(),
     v1 = require('../api/v1'),
-    api = v1.API;
+    api = v1.API,
+    mesaj = require('../api/v1/API').API;
 
 
 router.post('/', function (_q, _r) {
@@ -226,7 +228,7 @@ function f_KontrolveVTIslemleri(arrKurumlarDB, arrIhalelerDB, ihaleler, ihaleler
      * Yoksa Kurum, Ihale, Satırlar eklenecek
      */
     // db de var mı?
-    var vtIhale = _.where(arrIhalelerDB, {"IhaleTarihi": _ihale.IhaleTarihi, "Konusu": _ihale.Konusu});
+    var vtIhale = _.filter(arrIhalelerDB, {"IhaleTarihi": _ihale.IhaleTarihi, "Konusu": _ihale.Konusu});
     if (vtIhale.length > 0) {
         //ihale db de var
         _ihale.Id = vtIhale.Id;
@@ -304,7 +306,7 @@ function f_KurumKontrol(arrKurumlarDB, kurumlar_eklenen, _ihale) {
     var kurum = _ihale.Kurum;
     console.log(kurum);
 
-    var arrKurumSuzulen = _.where(arrKurumlarDB, {"Adi": kurum.Adi});
+    var arrKurumSuzulen = _.filter(arrKurumlarDB, {"Adi": kurum.Adi});
 
     // _.where() => [...] (dizi döner)
     if (arrKurumSuzulen.length > 0) {

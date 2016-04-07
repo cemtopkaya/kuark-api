@@ -1,8 +1,11 @@
 'use strict';
 
-var db = require('kuark-db'),
+var /** @type {DBModel} */
+     db = require('kuark-db')(),
     extensions = require('kuark-extensions'),
-    schema = require('kuark-schema');
+    schema = require('kuark-schema'),
+    exception=require('kuark-istisna'),
+    mesaj = require('./API').API;
 
 /**
  *
@@ -354,7 +357,7 @@ function APIKullanici() {
                 _r.status(200).send(mesaj.DELETE._200(parseInt(tahta_id), "Tahtadan Ayrılma İşlemi", "Kullanıcı Tahtadan başarıyla ayrıldı."));
             })
             .fail(function (_err) {
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.DELETE._405("", _err.Baslik, _err.Icerik));
                 }
                 else {
@@ -372,7 +375,7 @@ function APIKullanici() {
                 _r.status(200).send(mesaj.DELETE._200(parseInt(tahta_id), "Tahta Silme İşlemi", "Kullanıcı Tahtası başarıyla silindi."));
             })
             .fail(function (_err) {
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.DELETE._405("", _err.Baslik, _err.Icerik));
                 }
                 else {

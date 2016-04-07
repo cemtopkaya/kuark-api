@@ -1,7 +1,12 @@
 var passport = require('passport'),
     express = require('express'),
     q = require('q'),
-    routerLogin = express.Router();
+    schema = require('kuark-schema'),
+    routerLogin = express.Router(),
+    _ = require('lodash'),
+    /** @type {DBModel} */
+     db = require('kuark-db')(),
+    validator = require('validator');
 
 /**
  * Login Provider'lardan HATALI CALLBACK
@@ -34,7 +39,6 @@ var f_loginProivederCallbackError = function (err, req, res, next) {
      *  b) Kayıt sayfasına yönlendirelim
      *      res.redirect('/login/registration')
      */
-
 
     if (typeof err === 'object') { // Hatayı biz üretmişsek tipi object olur err = {code:10001, data:{}, ...}
         if (err.code === 10001) {  // Kullanıcı provider'dan geldi ama DB'de yok
@@ -100,7 +104,6 @@ var f_kullaniciyaYeniProviderEkle = function (kullanici, req, res, next) {
  */
 routerLogin.route('/')
     .get(function (_req, _res) {
-        SABIT.URL.LOCAL = _req.get('host');
         var ss = _req.session.ss || {kullanici: null},
             cs = _req.session.cs || {
                     ejs: {
@@ -108,7 +111,8 @@ routerLogin.route('/')
                         dogrulamaHatasi: null
                     }
                 };
-        console.log("Login içinde ss: ", _req.session.ss);
+
+        schema.SABIT.URL.LOCAL = _req.get('host');
         cs.ejs = {
             hata: null,
             form: {EPosta: ss.kullanici && ss.kullanici.EPosta ? ss.kullanici.EPosta : ''}
@@ -130,7 +134,6 @@ function f_loginProivederLastCallback(_req, _res, _next) {
 }
 routerLogin
     .post('/', function (_req, _res, _next) {
-
         var gelen = _req.body;
         var ldapLocalProvider = 'local';
         if (gelen.EPosta.indexOf('@') < 0 || gelen.EPosta.match(/(@fmc-ag.com)/g)) {
@@ -144,10 +147,9 @@ routerLogin
 
         passport.authenticate(ldapLocalProvider, function (_err, _user, _info) {
 
-            console.log("Login js içinde varsa \n\terr: ", _err, "\n\t_user: ", JSON.stringify(_user));
-            if (_err) {
-                f_loginProivederCallbackError(_err, _req, _res, _next);
-            }
+            //console.log("Login js içinde varsa \n\terr: ", _err, "\n\t_user: ", JSON.stringify(_user));
+
+            if (_err) return f_loginProivederCallbackError(_err, _req, _res, _next);
 
             /**
              * Provider'dan geçti
@@ -160,7 +162,10 @@ routerLogin
              *   - yoksa hata dönecek {code:10001, hata:'DB de bulamadım ama kaydedilebilir kullanıcı'}
              */
             _req.logIn(_user, function (err) {
-                //
+
+
+                //console.log("Login js içinde varsa \n\terr: ", err, "\n\t_user: ", JSON.stringify(_user));
+
                 if (err) {
                     f_loginProivederCallbackError(err, _req, _res, _next);
                 } else {
@@ -291,11 +296,11 @@ routerLogin
         if (mesaj) {
             _req.session.cs.ejs.dogrulamaHatasi = {hata: mesaj};
 
-          /*  _req.session.cs.ejs.form = {
-                AdiSoyadi:  kullanici.AdiSoyadi,
-                EPosta:  kullanici.EPosta,
-                Avatar:  kullanici.Avatar || '../img/avatar7.png'
-            };*/
+            /*  _req.session.cs.ejs.form = {
+             AdiSoyadi:  kullanici.AdiSoyadi,
+             EPosta:  kullanici.EPosta,
+             Avatar:  kullanici.Avatar || '../img/avatar7.png'
+             };*/
 
             return _res.render("page/kullaniciKayit", _req.session.cs.ejs);
             //return _res.redirect("/login/registration");

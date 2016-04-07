@@ -1,14 +1,18 @@
-var GoogleOAuth2Strategy = require('passport-google-oauth').OAuth2Strategy;
-var TwitterStrategy = require('passport-twitter').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
-var LocalStrategy = require('passport-local').Strategy;
-var LdapAuthStrategy = require('passport-ldapauth');
-var refresh = require('passport-oauth2-refresh');
-
+var GoogleOAuth2Strategy = require('passport-google-oauth').OAuth2Strategy,
+    TwitterStrategy = require('passport-twitter').Strategy,
+    FacebookStrategy = require('passport-facebook').Strategy,
+    LocalStrategy = require('passport-local').Strategy,
+    LdapAuthStrategy = require('passport-ldapauth'),
+    refresh = require('passport-oauth2-refresh'),
+    /** @type {DBModel} */
+     db = require('kuark-db')(),
+    _ = require('lodash'),
 // load the auth variables
-var authConfig = require('./authConfig');
+    authConfig = require('./authConfig'),
+    schema = require('kuark-schema');
 
 module.exports = function (passport) {
+
 
     /**
      *
@@ -31,14 +35,14 @@ module.exports = function (passport) {
          - yoksa hata dönelim (bu provider'ın döndüğü kullanıcı sistemde yok diye)
          */
         (_user.Providers.TW
-            ? db.kullanici.f_TWITTER_id_to_db_kullanici_id(_user.Providers.TW.id)
-            : _user.Providers.GP
-            ? db.kullanici.f_GPLUS_id_to_db_kullanici_id(_user.Providers.GP.id)
-            : _user.Providers.FB
-            ? db.kullanici.f_FACEBOOK_id_to_db_kullanici_id(_user.Providers.FB.id)
-            : _user.Providers.AD
-            ? db.kullanici.f_AD_to_db_kullanici_id(_user.Providers.AD.userPrincipalName)
-            : db.kullanici.f_eposta_to_db_kullanici_id(_user.EPosta)
+                ? db.kullanici.f_TWITTER_id_to_db_kullanici_id(_user.Providers.TW.id)
+                : _user.Providers.GP
+                ? db.kullanici.f_GPLUS_id_to_db_kullanici_id(_user.Providers.GP.id)
+                : _user.Providers.FB
+                ? db.kullanici.f_FACEBOOK_id_to_db_kullanici_id(_user.Providers.FB.id)
+                : _user.Providers.AD
+                ? db.kullanici.f_AD_to_db_kullanici_id(_user.Providers.AD.userPrincipalName)
+                : db.kullanici.f_eposta_to_db_kullanici_id(_user.EPosta)
         ).then(function (dbUserId) {
 
             if (!dbUserId) {
@@ -54,7 +58,7 @@ module.exports = function (passport) {
                         var err = false;
                         if (_dbKullanici) {
                             // token değişti, db dekini değiştiriyoruz
-                            extend(_dbKullanici.Providers,_user.Providers);
+                            _.extend(_dbKullanici.Providers, _user.Providers);
                             db.kullanici.f_db_kullanici_guncelle(_dbKullanici);
                             return _done(null, _dbKullanici);
                         } else {
@@ -125,7 +129,7 @@ module.exports = function (passport) {
 
     //region LDAP
     var f_LDAPStrategy = function (_req, _adUser, _done) {
-        console.log("AD'den bulunan kullanıcı: ", _adUser);
+        //console.log("AD'den bulunan kullanıcı: ", _adUser);
 
         var kullanici = schema.f_create_default_object(schema.SCHEMA.DB.KULLANICI);
         kullanici.EPosta = _adUser.mail;
@@ -213,7 +217,7 @@ module.exports = function (passport) {
     }, f_googleStrategy);
     passport.use(googleOAuth2Strategy);
 
-    refresh.requestNewAccessToken('google', 'some_refresh_token', function(err, accessToken, refreshToken) {
+    refresh.requestNewAccessToken('google', 'some_refresh_token', function (err, accessToken, refreshToken) {
         // You have a new access token, store it in the user object,
         // or use it to make a new request.
         // `refreshToken` may or may not exist, depending on the strategy you are using.
@@ -289,4 +293,6 @@ module.exports = function (passport) {
 
 
     // endregion
+
+    return passport;
 };

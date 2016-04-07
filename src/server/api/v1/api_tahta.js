@@ -1,7 +1,12 @@
 'use strict';
 
-var db = require('kuark-db'),
-    extensions = require('kuark-extensions');
+var /** @type {DBModel} */
+     db = require('kuark-db')(),
+    extensions = require('kuark-extensions'),
+    _ = require('lodash'),
+    schema = require('kuark-schema'),
+    exception=require('kuark-istisna'),
+    mesaj = require('./API').API;
 
 /**
  *
@@ -252,10 +257,10 @@ function APITahta() {
                             }
                         }
                     },
-                    "sort": elastic.f_sort(_arama)
+                    "sort": db.elastic.f_sort(_arama)
                 };
 
-                return elastic.f_search({
+                return db.elastic.f_search({
                     method: "POST",
                     index: db.elastic.SABIT.INDEKS.APP,
                     type: db.elastic.SABIT.TIP.KULLANICI,
@@ -266,7 +271,7 @@ function APITahta() {
                 }).then(function (_resp) {
                     var sonuc = schema.f_create_default_object(schema.SCHEMA.LAZY_LOADING_RESPONSE);
                     sonuc.ToplamKayitSayisi = _resp[0].hits.total;
-                    sonuc.Data = _.pluck(_resp[0].hits.hits, "_source");
+                    sonuc.Data = _resp[0].hits.hits.pluckX("_source");
                     return sonuc;
                 });
             });
@@ -392,7 +397,7 @@ function APITahta() {
                             var icerik = "<html>" +
                                 "<div>" +
                                 "<p>[" + _q.session.ss.kullanici.AdiSoyadi + "] isimli kullanıcı tarafından [" + _dbTahta.Genel.Adi + "] isimli tahtaya davet edildiniz.<br/>İlgili sayfaya gitmek için " +
-                                "<a  target=\"_blank\" href=\"http://" + SABIT.URL.LOCAL + "/tahtalar/" + _tahta_id + "/davetler/" + _uid + "\">[BURAYA]</a> tıklayınız.</p>" +
+                                "<a  target=\"_blank\" href=\"http://" + schema.SABIT.URL.LOCAL + "/tahtalar/" + _tahta_id + "/davetler/" + _uid + "\">[BURAYA]</a> tıklayınız.</p>" +
                                 "</div>" +
                                 "</html>";
 
@@ -504,13 +509,13 @@ function APITahta() {
          *
          */
         var defer_kriter;
-        if (_arama.Kriter == SABIT.URL_QUERY.KRITER.AKTIFLER) {
+        if (_arama.Kriter == schema.SABIT.URL_QUERY.KRITER.AKTIFLER) {
             defer_kriter = db.ihale.f_db_tahta_ihale_idler_aktif(_tahta_id)
         }
-        else if (_arama.Kriter == SABIT.URL_QUERY.KRITER.TAKIPTEKILER) {
+        else if (_arama.Kriter == schema.SABIT.URL_QUERY.KRITER.TAKIPTEKILER) {
             defer_kriter = db.ihale.f_db_ihale_tahtanin_takipteki_ihale_idleri(_tahta_id)
         }
-        else if (_arama.Kriter == SABIT.URL_QUERY.KRITER.GIZLENENLER) {
+        else if (_arama.Kriter == schema.SABIT.URL_QUERY.KRITER.GIZLENENLER) {
             defer_kriter = db.ihale.f_db_ihale_tahtanin_gizlenen_ihale_idleri(_tahta_id)
         }
 
@@ -536,10 +541,10 @@ function APITahta() {
                             }
                         }
                     },
-                    "sort": elastic.f_sort(_arama)
+                    "sort": db.elastic.f_sort(_arama)
                 };
 
-                elastic.f_search({
+                db.elastic.f_search({
                     method: "POST",
                     index: db.elastic.SABIT.INDEKS.APP,
                     type: db.elastic.SABIT.TIP.IHALE,
@@ -552,7 +557,7 @@ function APITahta() {
                     var sonuc = schema.f_create_default_object(schema.SCHEMA.LAZY_LOADING_RESPONSE);
                     sonuc.ToplamKayitSayisi = _resp[0].hits.total;
 
-                    var ihaleler = _.pluck(_resp[0].hits.hits, "_source");
+                    var ihaleler = _resp[0].hits.hits.pluckX("_source");
                     if (ihaleler && ihaleler.length > 0) {
                         db.ihale.f_db_ihale_takip_kontrol(_tahta_id, ihaleler)
                             .then(function (_ihaleler) {
@@ -632,7 +637,7 @@ function APITahta() {
             })
             .fail(function (_err) {
                 console.log("_err" + JSON.stringify(_err));
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.DELETE._405("", _err.Baslik, _err.Icerik));
                 }
                 else {
@@ -946,10 +951,10 @@ function APITahta() {
                             }
                         }
                     },
-                    "sort": elastic.f_sort(_arama)
+                    "sort": db.elastic.f_sort(_arama)
                 };
 
-                return elastic.f_search({
+                return db.elastic.f_search({
                     method: "POST",
                     index: db.elastic.SABIT.INDEKS.APP,
                     type: db.elastic.SABIT.TIP.KALEM,
@@ -964,20 +969,20 @@ function APITahta() {
                     var sonuc = schema.f_create_default_object(schema.SCHEMA.LAZY_LOADING_RESPONSE);
                     sonuc.ToplamKayitSayisi = _respElastic[0].hits.total;
 
-                    var kalemler = _.pluck(_respElastic[0].hits.hits, "_source");
+                    var kalemler = _respElastic[0].hits.hits.pluckX("_source");
                     if (kalemler && kalemler.length > 0) {
 
                         var gelen_kalem_idler = kalemler.pluckX("Id");
 
                         //sadece aktiflerin onay durumları ve takipte olup olmadıklarını buluyoruz
                         //diğer durumlarda bunlara gerek yok
-                        if (_arama.Kriter == SABIT.URL_QUERY.KRITER.AKTIFLER) {
+                        if (_arama.Kriter == schema.SABIT.URL_QUERY.KRITER.AKTIFLER) {
 
                             return db.redis.dbQ.Q.all([
                                 db.kalem.f_db_kalem_takip_kontrol(_tahta_id, kalemler),
                                 db.kalem.f_db_kalem_onay_durumu(gelen_kalem_idler, _tahta_id)
                             ]).then(function (_ress) {
-                                var olusan_kalem = extend(kalemler, _ress[0]);
+                                var olusan_kalem = _.extend(kalemler, _ress[0]);
                                 var arr_onay_durumlari = _ress[1];
 
                                 return olusan_kalem.map(function (_elm, _idx) {
@@ -990,7 +995,7 @@ function APITahta() {
                                     });
                             });
 
-                        } else if (_arama.Kriter == SABIT.URL_QUERY.KRITER.TAKIPTEKILER) {
+                        } else if (_arama.Kriter == schema.SABIT.URL_QUERY.KRITER.TAKIPTEKILER) {
 
                             return db.kalem.f_db_kalem_onay_durumu(gelen_kalem_idler, _tahta_id)
                                 .then(function (arr_onay_durumlari) {
@@ -1024,13 +1029,13 @@ function APITahta() {
          *
          */
         var defer_kriter;
-        if (_arama.Kriter == SABIT.URL_QUERY.KRITER.AKTIFLER) {
+        if (_arama.Kriter == schema.SABIT.URL_QUERY.KRITER.AKTIFLER) {
             defer_kriter = db.ihale.f_db_ihale_aktif_kalem_idler(_ihale_id, _tahta_id);
         }
-        else if (_arama.Kriter == SABIT.URL_QUERY.KRITER.TAKIPTEKILER) {
+        else if (_arama.Kriter == schema.SABIT.URL_QUERY.KRITER.TAKIPTEKILER) {
             defer_kriter = db.ihale.f_db_ihale_tahtanin_takipteki_kalem_idleri(_ihale_id, _tahta_id)
         }
-        else if (_arama.Kriter == SABIT.URL_QUERY.KRITER.GIZLENENLER) {
+        else if (_arama.Kriter == schema.SABIT.URL_QUERY.KRITER.GIZLENENLER) {
             defer_kriter = db.ihale.f_db_ihale_tahtanin_gizlenen_kalem_idleri(_ihale_id, _tahta_id)
         }
 
@@ -1161,7 +1166,7 @@ function APITahta() {
                 _r.status(201).send(mesaj.POST._201(_dbResult, "Teklif ekle", "Kaleme bağlı teklif BAŞARIYLA eklendi."));
             })
             .fail(function (_err) {
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.POST._405("", _err.Baslik, _err.Icerik));
                 }
                 else {
@@ -1181,7 +1186,7 @@ function APITahta() {
                 _r.status(200).send(mesaj.PUT._200(_dbResult, "", "Teklif BAŞARIYLA güncellendi!"));
             })
             .fail(function (_err) {
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.PUT._405("", _err.Baslik, _err.Icerik));
                 }
                 else {
@@ -1201,7 +1206,7 @@ function APITahta() {
                 _r.status(200).send(mesaj.PUT._200(_dbResult, "Teklif durumu güncelle", "Teklif durumu BAŞARIYLA güncellendi!"));
             })
             .fail(function (_err) {
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.PUT._405("", _err.Baslik, _err.Icerik));
                 }
                 else {
@@ -1220,7 +1225,7 @@ function APITahta() {
                 _r.status(200).send(mesaj.DELETE._200(parseInt(teklif_id), "Teklif sil", "Kaleme bağlı teklif BAŞARIYLA Silindi!"));
             })
             .fail(function (_err) {
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.DELETE._405("", _err.Baslik, _err.Icerik));
                 }
                 else {
@@ -1255,10 +1260,10 @@ function APITahta() {
                             }
                         }
                     },
-                    "sort": elastic.f_sort(arama)
+                    "sort": db.elastic.f_sort(arama)
                 };
 
-                return elastic.f_search({
+                return db.elastic.f_search({
                     method: "POST",
                     index: db.elastic.SABIT.INDEKS.APP,
                     type: db.elastic.SABIT.TIP.TEKLIF,
@@ -1350,7 +1355,7 @@ function APITahta() {
             case 'fiyat':
             {
                 defer =
-                    onay_durum_id == SABIT.ONAY_DURUM.teklif.KAZANDI
+                    onay_durum_id == schema.SABIT.ONAY_DURUM.teklif.KAZANDI
                         ? db.urun.f_db_urunun_kazandigi_teklif_fiyatlari(tahta_id, urun_id, paraBirim_id)
                         : db.urun.f_db_urunun_teklif_verildigi_fiyatlari(tahta_id, urun_id, paraBirim_id);
 
@@ -1379,15 +1384,15 @@ function APITahta() {
             tarih2 = _q.query.tarih2;
 
         if (!para_id) {
-            throw new exception.istisna("Validasyon hatası!", "Para birimi olmadan sorgulama yapılamaz!");
+            throw new exception.Istisna("Validasyon hatası!", "Para birimi olmadan sorgulama yapılamaz!");
         }
 
         if (!_q.query.q) {
-            throw new exception.istisna("Validasyon hatası!", "Sorgulama tipi olmadan işlem yapılamaz!");
+            throw new exception.Istisna("Validasyon hatası!", "Sorgulama tipi olmadan işlem yapılamaz!");
         }
 
         if (tarih1 > tarih2) {
-            throw new exception.istisna("Validasyon hatası!", "Başlangıç tarihi bitiş tarihinden büyük olamaz!");
+            throw new exception.Istisna("Validasyon hatası!", "Başlangıç tarihi bitiş tarihinden büyük olamaz!");
         }
 
         var defer;

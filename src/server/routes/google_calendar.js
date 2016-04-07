@@ -1,7 +1,9 @@
 var express = require('express'),
     r = express.Router(),
     gcal = require('google-calendar'),
-    db = require('kuark-db');
+    /** @type {DBModel} */
+     db = require('kuark-db')(),
+    mesaj = require('../api/v1/API').API;
 
 function f_token_kontrol(_req, _res, _next) {
     if (!_req.session.ss.kullanici || _req.session.ss.kullanici == null || !_req.session.ss.kullanici.Id) {

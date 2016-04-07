@@ -1,12 +1,11 @@
 var chai = require('chai'),
-    should = chai.should(),
     expect = chai.expect,
     assert = chai.assert,
     request = require('super-request'),
     ortak = require('./_ortakTestEnv'),
     db = require("kuark-db");
 
-describe("API Ürün işlemleri", function () {
+describe("API BATCH işlemleri", function () {
 
     function login(done) {
         var cookie = null;
@@ -36,17 +35,33 @@ describe("API Ürün işlemleri", function () {
             .end();
     }
 
-    it("Tahtanın ürünlerini çek", function (done) {
+    it("Ihale dunyasının ihalelerini çek", function (done) {
 
-        var tahta_id = 1,
-            url = '/api/v1/tahtalar/' + tahta_id + '/urunler/';
-
-        return login(done)
-            .get('/api/v1/tahtalar/1/urunler/')
+        login(done)
+            .get('/api/v1/ihaleler/tazele/id')
             .expect(200)
-            .end(function(err,res,body){
-                if(err) return done(err);
+            .end(function (err, res, body) {
+                if (err) return done(err);
+
                 done();
-            });
+            })
     });
+
+    function loginUser() {
+        //it('login', loginUser());
+        return function (done) {
+            request
+                .post('/login')
+                .send({EPosta: 'cem.topkaya@fmc-ag.com', Sifre: '.aqswdefr.'})
+                .expect(302)
+                .expect('Location', '/login/auth/success')
+                .end(function (err, res) {
+                    if (err) return done(err);
+                    cookie = res.headers['set-cookie'];
+                    return done();
+                })
+        };
+    };
+
 });
+

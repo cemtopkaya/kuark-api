@@ -1,42 +1,90 @@
 var chai = require('chai'),
-    should = chai.should,
     expect = chai.expect,
     assert = chai.assert,
-    request = require('supertest'),
-    db = require("kuark-db");
+    db = require("kuark-db"),
+    request = require('super-request'),
+    ortak = require('./_ortakTestEnv');
+
 
 describe("API Kullanıcı işlemleri", function () {
 
-    var apiRootUrl = "http://127.0.0.1:3000";
-    before(function (done) {
-        done();
+    function login(done) {
+        var cookie = null;
+
+        return request(ortak.app)
+            .post('/login')
+            .form({
+                EPosta: 'cem.topkaya@fmc-ag.com',
+                Sifre: '.aqswdefr.'
+            })
+            .expect(302)
+            .end(function (err, res, body) {
+
+                console.log("**************");
+                console.log("\t Error\t : ", err);
+                console.log("\t Status\t : ", res.status);
+                console.log("\t Body\t : ", res.body);
+
+                if (err) return done(err);
+
+                if (body === 'Found. Redirecting to /login/auth/success') {
+                    cookie = res.headers['set-cookie'];
+                }
+            })
+            .get('/login/auth/success')
+            .expect(200)
+            .end();
+    }
+
+    it('super-request ile logged in', function (done) {
+
+        var cookie = null;
+
+        return request(ortak.app)
+            .post('/login')
+            .form({
+                EPosta: 'cem.topkaya@fmc-ag.com',
+                Sifre: '.aqswdefr.'
+            })
+            .expect(302)
+            .end(function (err, res, body) {
+
+                console.log("**************");
+                console.log("\t Error\t : ", err);
+                console.log("\t Status\t : ", res.status);
+                console.log("\t Body\t : ", res.body);
+
+                if (err) return done(err);
+
+                if (body === 'Found. Redirecting to /login/auth/success') {
+                    cookie = res.headers['set-cookie'];
+                }
+            })
+            .get('/login/auth/success')
+            .expect(200)
+            .end(done);
     });
 
-    it("Kullanıcı tahtalarını çek", function (done) {
-        request(apiRootUrl)
+    it('Kullanıcı tahtalarını çeker', function (done) {
+        return login(done)
             .get('/api/v1/kullanicilar/1/tahtalar')
-            .send({})
-            .expect(200,done);
-        /*
-
-         .end(function (err, res) {
-         if (err) {
-         throw err;
-         } else {
-         console.log("response");
-         (res.text).should.equal('Moved Temporarily. Redirecting to /');
-         console.log("end içi");
-         done()
-         }
-         // Should.js fluent syntax applied
-         //res.body.should.have.property('_id');
-         //res.body.firstName.should.equal('JP');
-         //res.body.lastName.should.equal('Berd');
-         //res.body.creationDate.should.not.equal(null);
-         });
-        * */
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end(function (err, res, body) {
+                console.log(body);
+                done();
+            });
     });
 
-
-
+    it('/kullanicilar', function (done) {
+        return login(done)
+            .get('/api/v1/kullanicilar')
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end(function (err, res, body) {
+                console.log(body);
+                done();
+            });
+    });
 });
+

@@ -1,1 +1,4 @@
-module.exports = require('./src/v1/index');
+module.exports = {
+    api: require('./src/server/api/v1/index'),
+    serverModule: require('./src/server/app')
+}

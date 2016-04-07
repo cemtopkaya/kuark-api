@@ -1,7 +1,11 @@
 'use strict';
 
-var db = require('kuark-db'),
-    schema=require('kuark-schema');
+var /** @type {DBModel} */
+     db = require('kuark-db')(),
+    schema=require('kuark-schema'),
+    extensions=require('kuark-extensions'),
+    exception=require('kuark-istisna'),
+    mesaj = require('./API').API;
 
 /**
  *
@@ -140,7 +144,7 @@ function APIKalem() {
                 _r.status(200).send(mesaj.DELETE._200(parseInt(satir_id), "Kalem sil", "İhale kalem bilgisi BAŞARIYLA Silindi!"));
             })
             .fail(function (_err) {
-                if (_err instanceof exception.yetkisizErisim) {
+                if (_err instanceof exception.YetkisizErisim) {
                     _r.status(405).send(mesaj.DELETE._405("", _err.Baslik, _err.Icerik));
                 }
                 else {
@@ -214,10 +218,10 @@ function APIKalem() {
                             }
                         }
                     },
-                    "sort": elastic.f_sort(arama)
+                    "sort": db.elastic.f_sort(arama)
                 };
 
-                return elastic.f_search({
+                return db.elastic.f_search({
                     method: "POST",
                     index: db.elastic.SABIT.INDEKS.APP,
                     type: db.elastic.SABIT.TIP.KALEM,
@@ -230,7 +234,7 @@ function APIKalem() {
                     var sonuc = schema.f_create_default_object(schema.SCHEMA.LAZY_LOADING_RESPONSE);
                     sonuc.ToplamKayitSayisi = _resp[0].hits.total;
 
-                    var kalemler = _.pluck(_resp[0].hits.hits, "_source");
+                    var kalemler = _resp[0].hits.hits.pluckX("_source");
 
                     if (kalemler && kalemler.length > 0) {
 

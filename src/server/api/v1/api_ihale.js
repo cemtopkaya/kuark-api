@@ -1,7 +1,12 @@
 'use strict';
 
-var db = require('kuark-db'),
-    schema = require('kuark-schema');
+var /** @type {DBModel} */
+    db = require('kuark-db')(),
+    schema = require('kuark-schema'),
+    extensions = require('kuark-extensions'),
+    /** @type {IhaleDunyasi} */
+    batch = require('kuark-batch'),
+    mesaj = require('./API').API;
 
 /**
  *
@@ -20,8 +25,8 @@ function APIIhale() {
 
         db.redis.dbQ.del(db.redis.kp.temp.ssetKurum);
 
-        var id = require('../../../batch/ihaleDunyasi/ihaleDunyasi');
-        id.f_ihaleDunyasindanCekRediseEkle(_q.query.ihale_id, _q.query.top)
+        //var id = require('../../../batch/ihaleDunyasi/ihaleDunyasi');
+        batch.f_ihaleDunyasindanCekRediseEkle(_q.query.ihale_id, _q.query.top)
             .then(function (_ihaleler) {
                 _r.status(200).send(mesaj.GET._200(_ihaleler, "İhaleleri çek ve ekle", "İhaleler başarıyla çekildi"));
             })
@@ -88,10 +93,10 @@ function APIIhale() {
                             }
                         }
                     },
-                    "sort": elastic.f_sort(arama)
+                    "sort": db.elastic.f_sort(arama)
                 };
 
-                return elastic.f_search({
+                return db.elastic.f_search({
                     method: "POST",
                     index: db.elastic.SABIT.INDEKS.APP,
                     type: db.elastic.SABIT.TIP.IHALE,
@@ -104,7 +109,7 @@ function APIIhale() {
                     var sonuc = schema.f_create_default_object(schema.SCHEMA.LAZY_LOADING_RESPONSE);
                     sonuc.ToplamKayitSayisi = _resp[0].hits.total;
 
-                    var ihaleler = _.pluck(_resp[0].hits.hits, "_source");
+                    var ihaleler = _resp[0].hits.hits.pluckX("_source");
                     return db.ihale.f_db_ihale_takip_kontrol(_tahta_id, ihaleler)
                         .then(function (_ihaleler) {
                             sonuc.Data = _ihaleler;

@@ -1,6 +1,9 @@
 'use strict';
 
-var db = require('kuark-db');
+var /** @type {DBModel} */
+     db = require('kuark-db')(),
+    schema = require('kuark-schema'),
+    mesaj = require('./API').API;
 
 /**
  *

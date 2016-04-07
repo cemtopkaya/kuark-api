@@ -2,9 +2,10 @@ var express = require('express'),
     routerWeb = express.Router(),
     login = require('./login'),
     ortak = require('../../../lib/ortak'),
-    passport = require('passport');
-
-var v1 = require('../api/v1').v1();
+    passport = require('passport'),
+    db = require('kuark-db')(),
+    mesaj = require('../api/v1/API').API,
+    v1 = require('../api/v1').v1();
 
 /**
  * Kullanıcıya davet gelmiş mi?
@@ -54,22 +55,6 @@ routerWeb.route('/')
     .all(function (_req, _res, _next) {
 
         if (_req.session.ss.kullanici) {
-
-            /*var avatar,
-             providers = _req.session.ss.kullanici.Providers;
-
-             if (providers.TW != undefined && providers.TW.id) {
-             avatar = providers.TW.photos[0].value;
-             }
-             else if (providers.FB && providers.FB.id) {
-             avatar = providers.FB.photos[0].value;
-             }
-             else if (providers.GP && providers.GP.id) {
-             avatar = providers.GP.photos[0].value;
-             }
-             else {
-             avatar = _req.session.ss.kullanici.Avatar || "./img/avatar7.png";
-             }*/
 
             var avatar = _req.session.ss.kullanici.Avatar || "./img/avatar7.png";
             _req.session.ss.kullanici.Avatar = avatar;
