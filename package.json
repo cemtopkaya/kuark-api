@@ -1,6 +1,6 @@
 {
   "name": "kuark-api",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Kuark application's api",
   "main": "index.js",
   "directories": {

@@ -1,11 +1,11 @@
 'use strict';
 
 var /** @type {DBModel} */
-     db = require('kuark-db')(),
+    db = require('kuark-db')(),
     extensions = require('kuark-extensions'),
     _ = require('lodash'),
     schema = require('kuark-schema'),
-    exception=require('kuark-istisna'),
+    exception = require('kuark-istisna'),
     mesaj = require('./API').API;
 
 /**
@@ -1138,7 +1138,7 @@ function APITahta() {
 
     // region TAHTA URUNLERI
     function f_api_urunleri_tazele(_q, _r) {
-        var json = require("../../../public/json/urunler.json"),
+        var json = require("../../../../lib/urunler.json"),
             kullanici_id = _q.session.ss.kullanici.Id,
             uretici_id = _q.params.Kurum_Id,
             tahta_id = _q.params.Tahta_Id;

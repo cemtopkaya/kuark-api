@@ -1,0 +1,1068 @@
+{
+  "data": [
+    {
+      "Adi": "CAPD 2 STAYSAFE 2000ML OSTE. 11 LAN.",
+      "Kodu": "2197501",
+      "Fiyat": 13.8217676767677,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "CAPD 3 STAYSAFE 2000ML OSTEU. 11L RC",
+      "Kodu": "2198501",
+      "Fiyat": 13.795,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "CAPD  17 STAY.SAFE, 2000ML OE RC",
+      "Kodu": "2261301",
+      "Fiyat": 13.8206666666667,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "CAPD  19 STAY.SAFE, 2000ML OE RC",
+      "Kodu": "2266301",
+      "Fiyat": 13.8554411764706,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-Set stnd. Rontis",
+      "Kodu": "22H2230S",
+      "Fiyat": 4.93678714859438,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-Set torbali Rontis",
+      "Kodu": "22H223DS",
+      "Fiyat": 5.40070183486239,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "CAPD 17 STAY.SAFE, 2500ML 9 LANG. RC",
+      "Kodu": "2561511",
+      "Fiyat": 14.5815833333333,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "STAY.SAFE LUER-LOCK SET RB",
+      "Kodu": "2599911",
+      "Fiyat": 7.97111111111111,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "HOLDER FOR ORGANIZER",
+      "Kodu": "2842571N",
+      "Fiyat": 53.6165,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "CATHETER EXTENSION STAY-SAFE LL 32 CM",
+      "Kodu": "2843181",
+      "Fiyat": 12.8875,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "STAY.SAFE DISINFECTION CAP",
+      "Kodu": "2845091",
+      "Fiyat": 0.27346,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "ATG-Fresenius S Turkey 1x5 ml",
+      "Kodu": "3509101",
+      "Fiyat": 561.83925,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "ATG-Fresenius S  Turkey 10x5 ml",
+      "Kodu": "3509104",
+      "Fiyat": 5571.24853448276,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "HEMOFLOW F 3",
+      "Kodu": "5001651",
+      "Fiyat": 14.1963926940639,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FRESENIUS FX 8",
+      "Kodu": "5004731",
+      "Fiyat": 13.8836992997754,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FRESENIUS FX 10",
+      "Kodu": "5004741",
+      "Fiyat": 15.2829930505631,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FRESENIUS FX 5",
+      "Kodu": "5004831",
+      "Fiyat": 13.6776288436553,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "HEMOFLOW F 4 HPS",
+      "Kodu": "5007041",
+      "Fiyat": 15.934,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "HEMOFLOW F 7 HPS",
+      "Kodu": "5007071",
+      "Fiyat": 18.0983177570093,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "HEMOFLOW F 10 HPS",
+      "Kodu": "5007201",
+      "Fiyat": 20.8442056074766,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "ULTRAFLUX AV 600 S",
+      "Kodu": "5007361",
+      "Fiyat": 27.661568627451,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "EQUILIBRATION CHAMBER",
+      "Kodu": "5008211",
+      "Fiyat": 24.5615306122449,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FRESENIUS FX-paed",
+      "Kodu": "5008221",
+      "Fiyat": 17.9113559322034,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FRESENIUS FX40",
+      "Kodu": "5008841",
+      "Fiyat": 12.1311538461538,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "PROMETH 02",
+      "Kodu": "5008871",
+      "Fiyat": 3532.82375,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "PROMETH 01",
+      "Kodu": "5008891",
+      "Fiyat": 3522.78125,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "UltraFlux AV1000S",
+      "Kodu": "5008981",
+      "Fiyat": 27.2645454545455,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AlbuFlow AF 01",
+      "Kodu": "5008991",
+      "Fiyat": 198.870833333333,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SPIKE (100 PCS.)",
+      "Kodu": "5015921",
+      "Fiyat": 22.8733333333333,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-SET FMC (FA 204B/FV 204B) Online plus",
+      "Kodu": "5016691",
+      "Fiyat": 8.70521428571429,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "DYALISATE SYSTEM MULTIFILTRATE",
+      "Kodu": "5016751",
+      "Fiyat": 23.7052348993289,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SUBSTIT. SYSTEM MULTIFILTRATE",
+      "Kodu": "5016761",
+      "Fiyat": 23.3463265306122,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "MULTIFILTRATE CASSETTE",
+      "Kodu": "5016801",
+      "Fiyat": 61.7945283018868,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SLEEP-SAFE SET PLUS",
+      "Kodu": "5016931",
+      "Fiyat": 9.71,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "MULTIFILTRATE CI-CA CASSETTE",
+      "Kodu": "5017541",
+      "Fiyat": 102.701964285714,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-SET TK",
+      "Kodu": "5017611",
+      "Fiyat": 5.93504424778761,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Prometheus Secondary Circuit",
+      "Kodu": "5017761",
+      "Fiyat": 34.9271428571429,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "PROMETHEUS CITRATE",
+      "Kodu": "5017771",
+      "Fiyat": 203.812105263158,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-SET TK INF",
+      "Kodu": "5017921",
+      "Fiyat": 6.4302252614642,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SAFE-LOCK PD-NIGHT DRAINAGE-SET",
+      "Kodu": "5019571",
+      "Fiyat": 6.34953488372093,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FILTRATBEUTEL / FILTRATE BAG 10 L",
+      "Kodu": "5029011",
+      "Fiyat": 11.9590091463415,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "MULTIFILTRATE - KIT 7 HV-CVVH 1000",
+      "Kodu": "5038181",
+      "Fiyat": 150.88125,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "MULTIFILTRATE - KIT 8 CVVHDF 1000",
+      "Kodu": "5038871",
+      "Fiyat": 160.839514563107,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "MULTIFILTRATE - KIT 4 CVVHDF 600",
+      "Kodu": "5038931",
+      "Fiyat": 162.842511415525,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "MULTIFILTRATE - KIT Ci-Ca CVVHD 1000",
+      "Kodu": "5039011",
+      "Fiyat": 181.772109375,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Multifiltrate Kit Paed CRRT / SCUF",
+      "Kodu": "5039051",
+      "Fiyat": 164.070909090909,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SAFE LINE TM",
+      "Kodu": "5046801",
+      "Fiyat": 3.86816666666667,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "BIBAG 5008 650g",
+      "Kodu": "5060781",
+      "Fiyat": 3.40891879350348,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SN CANULA 16GA 1,6X25MM SN650RG",
+      "Kodu": "5081651",
+      "Fiyat": 3.46673333333333,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 15G ART. ROT.WING T30,N25",
+      "Kodu": "5082501",
+      "Fiyat": 0.652479262672811,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 16G ART. ROT.WING T30,N25",
+      "Kodu": "5082511",
+      "Fiyat": 0.654497187060478,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 15G VEN. ROT.WING T30,N25",
+      "Kodu": "5082631",
+      "Fiyat": 0.652481415929204,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 16G VEN. ROT.WING T30,N25",
+      "Kodu": "5082641",
+      "Fiyat": 0.654455577822311,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "proHD CVC Set M",
+      "Kodu": "5083821",
+      "Fiyat": 5.26358842743817,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SPOROTAL 100 (6 x 1 l)",
+      "Kodu": "5085161",
+      "Fiyat": 118.158888888889,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SPOROTAL 100  5L",
+      "Kodu": "5085421",
+      "Fiyat": 23.6364444444444,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Clear Surf (6 x 2l) GR/H/HR/TK",
+      "Kodu": "5085781",
+      "Fiyat": 318.25,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 15G ART. ROT.WING T15,N25",
+      "Kodu": "5088621",
+      "Fiyat": 0.595714285714286,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 15G VEN. ROT.WING T15,N25",
+      "Kodu": "5088631",
+      "Fiyat": 0.595542997542998,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 16G ART. ROT.WING T15,N25",
+      "Kodu": "5088641",
+      "Fiyat": 0.673198976327575,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 16G VEN. ROT.WING T15,N25",
+      "Kodu": "5088651",
+      "Fiyat": 0.631502732240437,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 17G ART. ROT.WING T15,N2",
+      "Kodu": "5088661",
+      "Fiyat": 0.644444444444444,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FISTULA NEEDLE 17G VEN. ROT.WING T15,N25",
+      "Kodu": "5088671",
+      "Fiyat": 0.636753812636165,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "BI BAG 900 / 950 g, GB/D/F/NL/E/P/I",
+      "Kodu": "5089911",
+      "Fiyat": 4.14444836716681,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "BI BAG 650 g, GB/D/F/NL/E/P/I",
+      "Kodu": "5089921",
+      "Fiyat": 3.41270900842515,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Clear Surf wipes BG - FIN - RUS - TR",
+      "Kodu": "6030731",
+      "Fiyat": 4.69151260504202,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "BLOOD PUMP MODULE SN W. 20PIN CABLE 4008",
+      "Kodu": "6707461",
+      "Fiyat": 1370.83,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "multiPlus K+2, 5000 ML",
+      "Kodu": "9688201",
+      "Fiyat": 33.0350485436893,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Ci-Ca Dialysate K2, 5000 ML",
+      "Kodu": "9689201",
+      "Fiyat": 29.3532760267431,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "DIASAFE PLUS Filter",
+      "Kodu": "B5008201",
+      "Fiyat": 46.1829691211401,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "TSC Sodium Citrate Sol 4% 1000 ml",
+      "Kodu": "E2011",
+      "Fiyat": 29.8715267175573,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PC"
+    },
+    {
+      "Adi": "TSC Sodium Citrate Sol 4% 1500 ml",
+      "Kodu": "E2012",
+      "Fiyat": 28.8767692307692,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SAFE LOCK BAL. 4.25%, 1.75CA, 5.0L, EE",
+      "Kodu": "F00000058",
+      "Fiyat": 30.2845,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SAFE LOCK BAL. 2.3%, 1.25CA, 5.0L, EE",
+      "Kodu": "F00000060",
+      "Fiyat": 34.7289583333333,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SAFE LOCK BAL. 4.25%, 1.25CA, 5.0L, EE",
+      "Kodu": "F00000061",
+      "Fiyat": 31.3860416666667,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "MULTIFILTRATE - KIT 16 MPS P2dry",
+      "Kodu": "F00000215",
+      "Fiyat": 300.841666666667,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-Set ONLINEplus 5008-R",
+      "Kodu": "F00000384",
+      "Fiyat": 8.9514802259887,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "STAY SAFE BALANCE 1.5%, 1.25CA, 2.0L E2",
+      "Kodu": "F00000445",
+      "Fiyat": 24.1775,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "STAY SAFE BALANCE 2.3%, 1.25CA, 2.0L E2",
+      "Kodu": "F00000446",
+      "Fiyat": 24.2066666666667,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "STAY SAFE BALANCE 1.5%, 1.75CA, 2.0L E2",
+      "Kodu": "F00000448",
+      "Fiyat": 24.2416071428571,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "STAY SAFE BALANCE 2.3%, 1.75CA, 2.0L E2",
+      "Kodu": "F00000449",
+      "Fiyat": 24.1007446808511,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "STAY SAFE BALANCE 2.3%, 1.25CA, 2.5L E2",
+      "Kodu": "F00000452",
+      "Fiyat": 24.4644444444444,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-SET FMC PAED/BABY-R",
+      "Kodu": "F00001063",
+      "Fiyat": 9.13181818181818,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-SET FMC PAED-R",
+      "Kodu": "F00001064",
+      "Fiyat": 9.06067125645439,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-Set ONLINEplus BVM PAED 5008-R",
+      "Kodu": "F00001068",
+      "Fiyat": 18.35,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX CorDiax 40",
+      "Kodu": "F00001588",
+      "Fiyat": 13.8530331125828,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX CorDiax 50",
+      "Kodu": "F00001589",
+      "Fiyat": 14.2593967517401,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX CorDiax 60",
+      "Kodu": "F00001590",
+      "Fiyat": 15.378676416819,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX CorDiax 80",
+      "Kodu": "F00001591",
+      "Fiyat": 16.8308082706767,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX CorDiax 100",
+      "Kodu": "F00001592",
+      "Fiyat": 19.0247023809524,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX CorDiax 600",
+      "Kodu": "F00001593",
+      "Fiyat": 15.8301785714286,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX CorDiax 800",
+      "Kodu": "F00001594",
+      "Fiyat": 17.1831578947368,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "proHD Set M",
+      "Kodu": "F00001622",
+      "Fiyat": 1.38624882629108,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Ci-Ca Dialysate K2 Plus, 5000ML",
+      "Kodu": "F00001624",
+      "Fiyat": 28.9946592709984,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX 50 classix",
+      "Kodu": "F00002385",
+      "Fiyat": 13.7524790727624,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX 60 classix",
+      "Kodu": "F00002386",
+      "Fiyat": 14.8918756936737,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX 80 classix",
+      "Kodu": "F00002387",
+      "Fiyat": 16.7047837943124,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "FX 100 classix",
+      "Kodu": "F00002388",
+      "Fiyat": 18.3257553191489,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Puristeril plus 5 kg (multilingual)",
+      "Kodu": "F00003213",
+      "Fiyat": 39.965873015873,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "AV-Set 5008 CorDiax post-R",
+      "Kodu": "F00003267",
+      "Fiyat": 8.40534818941504,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "multiFiltrate Kit MPS P1 dry",
+      "Kodu": "F00003316",
+      "Fiyat": 239.946,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "multiFiltrate Kit Midi CVVHDF 400",
+      "Kodu": "F00003317",
+      "Fiyat": 153.194305555556,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SLEEP SAFE BAL. 1.5%, 1.25CA, 5.0L, E2",
+      "Kodu": "F00003359",
+      "Fiyat": 28.3908582089552,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "SLEEP SAFE BAL. 2.3%, 1.25CA, 5.0L, E2",
+      "Kodu": "F00003360",
+      "Fiyat": 28.1929166666667,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "IntraLock 10 x 5 mL",
+      "Kodu": "F00004874",
+      "Fiyat": 13.2540256045519,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "multiBic 2 mmol/L potassium TR/ GB",
+      "Kodu": "F00006019",
+      "Fiyat": 40.847,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "BCM BODY COMPOSITION MONITOR (engl.)",
+      "Kodu": "H022011",
+      "Fiyat": 5723.1,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "MULTIFILTRATE  BASIS",
+      "Kodu": "M200701",
+      "Fiyat": 26662.38,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "DEVICE HD 5008S ONLINE/W./DIASAFE/W.OCM",
+      "Kodu": "M201211",
+      "Fiyat": 31706.055,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "MULTIFILTRATE  CICA (D) BASIS",
+      "Kodu": "M201271",
+      "Fiyat": 33109.025,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "4008S classix BASIC VERSION",
+      "Kodu": "M204001",
+      "Fiyat": 23277.8116666667,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Arter Fistül Ýðnesi 16 G -CT (sabit)",
+      "Kodu": "TM000044",
+      "Fiyat": 0.612,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Arter Fistül Ýðnesi 15 G -CT",
+      "Kodu": "TM000046",
+      "Fiyat": 0.6703,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Ven Fistül Ýðnesi 15 G CT",
+      "Kodu": "TM000047",
+      "Fiyat": 0.6703,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Arter Fistül Ýðnesi 17G -25 MM CT-sabit",
+      "Kodu": "TM000048",
+      "Fiyat": 0.631,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Ven Fistül Ýðnesi 17 G 25 MM CT(sabit)",
+      "Kodu": "TM000049",
+      "Fiyat": 0.631,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Y set Ýðneli",
+      "Kodu": "TM000052",
+      "Fiyat": 4.45,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "EMPTY BAG 1 PCS SASAN",
+      "Kodu": "TM000055",
+      "Fiyat": 0.59745,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Arter Fistül Ýðnesi 16 G -CT (dönerli)",
+      "Kodu": "TM000062",
+      "Fiyat": 0.6535,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Ven Fistül Ýðnesi 16 G CT (dönerli)",
+      "Kodu": "TM000063",
+      "Fiyat": 0.630333333333333,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Arter Fistül Ýðnesi 17G -25MM CT-dönerli",
+      "Kodu": "TM000064",
+      "Fiyat": 0.689822222222222,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Ven Fistül Ýðnesi 17 G 25 MM CT(dönerli)",
+      "Kodu": "TM000065",
+      "Fiyat": 0.689822222222222,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GF-5315E",
+      "Kodu": "TR05315GF",
+      "Fiyat": 0.67776,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GF-5316 E",
+      "Kodu": "TR05316EF",
+      "Fiyat": 0.604376863446631,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GR-5316 E",
+      "Kodu": "TR05316ER",
+      "Fiyat": 0.677093786182941,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GR-5317E",
+      "Kodu": "TR05317ER",
+      "Fiyat": 0.622184615384615,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GF-5585E",
+      "Kodu": "TR05585GF",
+      "Fiyat": 1.08521513353116,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GF-5586E",
+      "Kodu": "TR05586GF",
+      "Fiyat": 1.2694391025641,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GF-6216 E",
+      "Kodu": "TR06216EF",
+      "Fiyat": 0.605933333333333,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GR-6216 E",
+      "Kodu": "TR06216ER",
+      "Fiyat": 0.677532389874427,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GR-6217E",
+      "Kodu": "TR06217ER",
+      "Fiyat": 0.622187412587413,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GF-6585E",
+      "Kodu": "TR06585GF",
+      "Fiyat": 1.08521513353116,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    },
+    {
+      "Adi": "Fistula Needles GF-6586E",
+      "Kodu": "TR06586GF",
+      "Fiyat": 1.2694391025641,
+      "ParaBirim_Id": 1,
+      "UreticiKurum_Id": 1,
+      "Birim": "PCE"
+    }
+  ]
+}
