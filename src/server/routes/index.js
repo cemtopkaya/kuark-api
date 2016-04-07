@@ -1,6 +1,7 @@
 var router = require('express').Router(),
     ortak = require('../../../lib/ortak'),
-    l = require('kuark-extensions').winstonConfig,
+    extensions = require('kuark-extensions'),
+    l = extensions.winstonConfig,
     routes = {
         api: require('./api'),
         ekap: require("./ekap"),
@@ -109,7 +110,7 @@ function Router(app) {
             var fullUrl = _req.protocol + '://' + _req.get('host') + _req.originalUrl;
 
             console.error("\nSORUNLU REQUEST:\n\tMETHOD\t: %s \n\tURL\t\t: %s \n\tBODY\t: %s", _req.method, fullUrl, JSON.stringify(_req.body, null, 2));
-            ssr = [{"EnAlttakiHataSatirinaDustu": _err}];
+            extensions.ssr = [{"EnAlttakiHataSatirinaDustu": _err}];
 
             if (_err.data && _err.data.returnType && _err.data.returnType == "json") {
                 return _res.json(_err);

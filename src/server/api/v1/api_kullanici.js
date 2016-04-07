@@ -544,7 +544,7 @@ function APIKullanici() {
         });
     }
 
-    function f_api_kullanici_ekle1(_q, _r) {
+    function f_api_kullanici_ekle(_q, _r) {
         var kullanici = _q.body;
 
         db.kullanici.f_db_kullanici_ekle(kullanici)
@@ -641,7 +641,7 @@ function APIKullanici() {
         f_api_kullanici_yetki_guncelle: f_api_kullanici_yetki_guncelle,
         f_api_kullanici_yetki_sil: f_api_kullanici_yetki_sil,
         f_api_kullanici_session: f_api_kullanici_session,
-        f_api_kullanici_ekle1: f_api_kullanici_ekle1,
+        f_api_kullanici_ekle: f_api_kullanici_ekle,
         f_api_kullanici_id: f_api_kullanici_id,
         f_api_kullanici_guncelle: f_api_kullanici_guncelle,
         f_api_kullanici_sil: f_api_kullanici_sil,

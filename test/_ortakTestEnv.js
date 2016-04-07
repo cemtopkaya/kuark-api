@@ -1,7 +1,3 @@
-/**
- * Created by duygu.akmaz on 06.04.2016.
- */
-
 var path = require('path'),
     serverModule = require('../src/server/app'),
     expressApp = serverModule.expressSetup(path.join(__dirname + '/public'), path.join(__dirname + '/views')),
@@ -72,7 +68,6 @@ module.exports = {
 
                 done(agent);
             });
-        ;
     }
 };
 

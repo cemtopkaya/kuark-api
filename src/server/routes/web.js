@@ -5,7 +5,9 @@ var express = require('express'),
     passport = require('passport'),
     db = require('kuark-db')(),
     mesaj = require('../api/v1/API').API,
-    v1 = require('../api/v1').v1();
+    v1 = require('../api/v1').v1(),
+    extensions = require('kuark-extensions'),
+    l = extensions.winstonConfig;
 
 /**
  * Kullanıcıya davet gelmiş mi?

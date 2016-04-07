@@ -1,6 +1,6 @@
 {
   "name": "kuark-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Kuark application's api",
   "main": "index.js",
   "directories": {
@@ -83,7 +83,7 @@
     "express-session": "^1.13.0",
     "google-calendar": "^1.3.2",
     "kuark-batch": "0.0.8",
-    "kuark-db": "0.0.6",
+    "kuark-db": "0.0.7",
     "kuark-extensions": "0.0.21",
     "kuark-istisna": "0.0.8",
     "kuark-schema": "0.0.7",

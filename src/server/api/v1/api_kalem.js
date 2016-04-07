@@ -124,7 +124,7 @@ function APIKalem() {
             satir_id = _q.params.Satir_Id,
             kullanici_id = _q.session.ss.kullanici.Id;
 
-        db.kalem.f_db_kalem_guncelle_tahta(tahta_id, ihale_id, es_kalem, db_kalem, kullanici_id)
+        db.kalem.f_db_kalem_guncelle(tahta_id, ihale_id, es_kalem, db_kalem, kullanici_id)
             .then(function (_dbResult) {
                 _r.send(200, mesaj.PUT._200(_dbResult, "Kalem güncelle", "İhaleye bağlı kalem BAŞARIYLA güncellendi."));
             })

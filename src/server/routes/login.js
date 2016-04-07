@@ -5,8 +5,10 @@ var passport = require('passport'),
     routerLogin = express.Router(),
     _ = require('lodash'),
     /** @type {DBModel} */
-     db = require('kuark-db')(),
-    validator = require('validator');
+    db = require('kuark-db')(),
+    validator = require('validator'),
+    extensions = require('kuark-extensions'),
+    l = extensions.winstonConfig;
 
 /**
  * Login Provider'lardan HATALI CALLBACK
@@ -245,7 +247,7 @@ routerLogin
 
         // sayfayı ilk kez gönderirken hata yok ancak post back olduğunda validasyon hatası olabilir.
         console.log(JSON.stringify(cs, null, '\t'));
-        ssg = [{"cs": cs}];
+        extensions.ssg = [{"cs": cs}];
         cs.ejs.form = {
             AdiSoyadi: cs.ejs.form && cs.ejs.form.AdiSoyadi ? cs.ejs.form.AdiSoyadi : kullanici.AdiSoyadi,
             EPosta: cs.ejs.form && cs.ejs.form.EPosta ? cs.ejs.form.EPosta : kullanici.EPosta,
@@ -317,7 +319,7 @@ routerLogin
             .then(function (_dbKullanici_id) {
                 if (_dbKullanici_id) {
                     l.i("Kullanıcı db de kayıtlı");
-                    ssg = [{"_dbKullanici_id": _dbKullanici_id}];
+                    extensions.ssg = [{"_dbKullanici_id": _dbKullanici_id}];
 
                     _req.session.cs.ejs.dogrulamaHatasi = {
                         hata: "Bu e-posta adresini kullanan bir kullanıcımız var. Yoksa siz misiniz? Şifrenizi mi unuttunuz? <a href='/login/sifreHatirlat'>Şifrenizi hatırlamamıza ne dersiniz</a>?"

@@ -3,7 +3,10 @@ var express = require('express'),
     v1 = api.v1(),
     r = express.Router(),
     schema = require('kuark-schema'),
-    mesaj = require('../api/v1/API').API;
+    mesaj = require('../api/v1/API').API,
+    ortak = require('../../../lib/ortak'),
+    extensions = require('kuark-extensions'),
+    l = extensions.winstonConfig;
 
 r.route('/default/:SemaAdi')
     .get(function (_q, _r, next) {
@@ -155,7 +158,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/uyarilar')
 
                 /** @type {Yetki} */
                 var yetki = {uyari: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -168,7 +171,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/uyarilar')
                 /** @type {Yetki} */
                 var yetki = {uyari: {c: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -208,7 +211,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/uyarilar/:Uyari_Id(\\d+)/')
 
                 /** @type {Yetki} */
                 var yetki = {uyari: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -221,7 +224,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/uyarilar/:Uyari_Id(\\d+)/')
                 /** @type {Yetki} */
                 var yetki = {uyari: {u: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -235,7 +238,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/uyarilar/:Uyari_Id(\\d+)/')
 
                 /** @type {Yetki} */
                 var yetki = {uyari: {d: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -265,7 +268,7 @@ r.route('/ihaleler/tazele/id')
 
 //region Diğer
 r.route('/kullanicilar')
-    .post(v1.kullanici.f_api_kullanici_ekle1);
+    .post(v1.kullanici.f_api_kullanici_ekle);
 
 //kullanıcı oturum durumunu değiştir
 r.route('/kullanicilar/:Kul_Id(\\d+)/oturumDurumlari/:Durum_Id')
@@ -388,7 +391,7 @@ r.route('/kullanicilar/:Kul_Id(\\d+)/yorumlar')
 //region KULLANICI TAHTALARI
 r.route('/kullanicilar/:Kul_Id(\\d+)/tahtalar')
     .all(function (_q, _r, next) {
-        ssg = _q.session.ss.kullanici;
+        extensions.ssg = _q.session.ss.kullanici;
 
         if (!_q.params.Kul_Id) {
             next(mesaj[_q.method]._400(null));
@@ -483,7 +486,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/haberler')
 
                 /** @type {Yetki} */
                 var yetki = {haber: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -496,7 +499,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/haberler')
                 /** @type {Yetki} */
                 var yetki = {haber: {c: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -665,7 +668,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/kurumlar')
 
                     /** @type {Yetki} */
                     var yetki = {firma: {r: true}};
-                    f_kullanici_yetkilimi({
+                    ortak.f_kullanici_yetkilimi({
                         q: _q,
                         r: _r,
                         n: next,
@@ -678,9 +681,9 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/kurumlar')
                     /** @type {Yetki} */
                     var yetki = {firma: {c: true}};
 
-                    /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                     ssr = [{"yetki": yetki}];*/
-                    f_kullanici_yetkilimi({
+                    extensions.ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
+                    extensions.ssr = [{"yetki": yetki}];
+                    ortak.f_kullanici_yetkilimi({
                         q: _q,
                         r: _r,
                         n: next,
@@ -720,7 +723,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/kurumlar/:Kurum_Id(\\d+)/')
 
                 /** @type {Yetki} */
                 var yetki = {firma: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -733,7 +736,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/kurumlar/:Kurum_Id(\\d+)/')
                 /** @type {Yetki} */
                 var yetki = {firma: {u: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -748,7 +751,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/kurumlar/:Kurum_Id(\\d+)/')
 
                 /** @type {Yetki} */
                 var yetki = {firma: {d: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -792,7 +795,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/urunler')
 
                 /** @type {Yetki} */
                 var yetki = {urun: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -805,7 +808,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/urunler')
                 /** @type {Yetki} */
                 var yetki = {urun: {c: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -840,7 +843,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/urunler/:Urun_Id(\\d+)/')
 
                 /** @type {Yetki} */
                 var yetki = {urun: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -853,7 +856,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/urunler/:Urun_Id(\\d+)/')
                 /** @type {Yetki} */
                 var yetki = {urun: {u: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -867,7 +870,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/urunler/:Urun_Id(\\d+)/')
 
                 /** @type {Yetki} */
                 var yetki = {urun: {d: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1014,7 +1017,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)/satirlar/:Satir_Id(\
 
                 /** @type {Yetki} */
                 var yetki = {kalem: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1027,9 +1030,8 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)/satirlar/:Satir_Id(\
                 /** @type {Yetki} */
                 var yetki = {kalem: {u: true}};
 
-                /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                 ssr = [{"yetki": yetki}];*/
-                f_kullanici_yetkilimi({
+
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1043,7 +1045,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)/satirlar/:Satir_Id(\
 
                 /** @type {Yetki} */
                 var yetki = {kalem: {d: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1078,7 +1080,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)/satirlar/tumu')
 
                 /** @type {Yetki} */
                 var yetki = {kalem: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1091,9 +1093,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)/satirlar/tumu')
                 /** @type {Yetki} */
                 var yetki = {kalem: {c: true}};
 
-                /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                 ssr = [{"yetki": yetki}];*/
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1128,7 +1128,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)/satirlar')
 
                 /** @type {Yetki} */
                 var yetki = {kalem: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1141,9 +1141,8 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)/satirlar')
                 /** @type {Yetki} */
                 var yetki = {kalem: {c: true}};
 
-                /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                 ssr = [{"yetki": yetki}];*/
-                f_kullanici_yetkilimi({
+
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1215,7 +1214,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler')
 
                 /** @type {Yetki} */
                 var yetki = {ihale: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1227,14 +1226,13 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler')
 
                 /** @type {Yetki} */
                 var yetki = {ihale: {c: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
                     tahta_id: tahta_id,
                     yetki: yetki
                 });
-                l.info("buraya kadar geldimmi acaba?")
                 schema.f_suz_dogrula_cevapla(_q, _r, next, schema.SCHEMA.IHALE, _q.body);
                 break;
         }
@@ -1262,7 +1260,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)')
 
                 /** @type {Yetki} */
                 var yetki = {ihale: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: _next,
@@ -1274,7 +1272,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)')
 
                 /** @type {Yetki} */
                 var yetki = {ihale: {u: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: _next,
@@ -1288,7 +1286,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/ihaleler/:Ihale_Id(\\d+)')
 
                 /** @type {Yetki} */
                 var yetki = {ihale: {d: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: _next,
@@ -1440,7 +1438,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/teklifler')
                 /** @type {Yetki} */
                 var yetki = {teklif: {c: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1474,7 +1472,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/teklifler/:Teklif_Id(\\d+)')
 
                 /** @type {Yetki} */
                 var yetki = {teklif: {r: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1487,7 +1485,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/teklifler/:Teklif_Id(\\d+)')
                 /** @type {Yetki} */
                 var yetki = {teklif: {u: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1501,7 +1499,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/teklifler/:Teklif_Id(\\d+)')
 
                 /** @type {Yetki} */
                 var yetki = {teklif: {d: true}};
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1630,7 +1628,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/uyeler/:Uye_Id(\\d+)/roller')
                 /** @type {Yetki} */
                 var yetki = {uyeRolleri: {c: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1644,7 +1642,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/uyeler/:Uye_Id(\\d+)/roller')
                 /** @type {Yetki} */
                 var yetki = {uyeRolleri: {u: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1689,17 +1687,15 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/davetler')
         switch (_q.method.toLowerCase()) {
             case "post":
 
-                /** @type {Yetki} */
-                var yetki = {davet: {c: true}};
 
-                /** @type {UyeDavet} */
-                var yeniDavet = _q.body;
-                console.log(JSON.stringify(yeniDavet));
-                console.log(JSON.stringify(schema.SCHEMA.UYE_DAVET));
-                var valErr = schema.f_suz_dogrula(schema.SCHEMA.UYE_DAVET, yeniDavet);
-                console.log(typeof schema.f_suz_dogrula);
+                var /** @type {Yetki} */
+                    yetki = {davet: {c: true}},
+                    /** @type {UyeDavet} */
+                    yeniDavet = _q.body,
+                    valErr = schema.f_suz_dogrula(schema.SCHEMA.UYE_DAVET, yeniDavet);
+
                 if (valErr) {
-                    ssr = [{"valErr": valErr}];
+                    extensions.ssr = [{"valErr": valErr}];
                     console.error("Davet için validasyon hatası alındı.");
                     var msj = mesaj[_q.method]._400(null);
                     next(msj);
@@ -1707,9 +1703,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/davetler')
 
                 console.log("Davet ile ilgili YETKİ işlemi yapacağız... > ", yetki);
 
-                /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                 ssr = [{"yetki": yetki}];*/
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1737,7 +1731,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/davetler/:Davetli')
                 /** @type {Yetki} */
                 var yetki = {davet: {d: true}};
 
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1768,9 +1762,8 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/roller')
                 // 1: Tahta rollerini çekmeye yetkili mi?
                 var yetki = {rol: {r: true}};
 
-                /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                 ssr = [{"yetki": yetki}];*/
-                f_kullanici_yetkilimi({
+
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1783,9 +1776,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/roller')
 
                 var yetki = {rol: {c: true}};
 
-                /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                 ssr = [{"yetki": yetki}];*/
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1815,9 +1806,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/roller/:Rol_Id(\\d+)')
                 // 1: Tahta rollerini çekmeye yetkili mi?
                 var yetki = {rol: {r: true}};
 
-                /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                 ssr = [{"yetki": yetki}];*/
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1831,9 +1820,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/roller/:Rol_Id(\\d+)')
 
                 var yetki = {rol: {u: true}};
 
-                /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                 ssr = [{"yetki": yetki}];*/
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,
@@ -1847,9 +1834,7 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/roller/:Rol_Id(\\d+)')
             case "delete":
                 var yetki = {rol: {d: true}};
 
-                /*ssg = [{"_q.session.ss.kullanici": _q.session.ss.kullanici}];
-                 ssr = [{"yetki": yetki}];*/
-                f_kullanici_yetkilimi({
+                ortak.f_kullanici_yetkilimi({
                     q: _q,
                     r: _r,
                     n: next,

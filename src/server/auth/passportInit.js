@@ -5,14 +5,15 @@ var GoogleOAuth2Strategy = require('passport-google-oauth').OAuth2Strategy,
     LdapAuthStrategy = require('passport-ldapauth'),
     refresh = require('passport-oauth2-refresh'),
     /** @type {DBModel} */
-     db = require('kuark-db')(),
+    db = require('kuark-db')(),
     _ = require('lodash'),
 // load the auth variables
     authConfig = require('./authConfig'),
-    schema = require('kuark-schema');
+    schema = require('kuark-schema'),
+    extensions = require('kuark-extensions'),
+    l = extensions.winstonConfig;
 
 module.exports = function (passport) {
-
 
     /**
      *
@@ -137,27 +138,8 @@ module.exports = function (passport) {
         kullanici.Providers = {AD: _adUser};
 
         return _done(null, kullanici);
-        /*return _req.logIn(kullanici, function (err) {
-         console.log("\n_req.login içinde \n\tkullanici: " + JSON.stringify(kullanici));
-         return _done(err, kullanici);
-         });*/
-        /*return _req.logIn(_adUser, function (_err) {
-         // Serileştirmede hata oluştu! O zaman, VT de kayıtlı değilsin > hata karşılamaya git
-         if (_err) {
-         l.e("Doğrulamadan geçti ama hata aldık: ", _err);
-         if (_err === "") {
-         return _res.redirect('/login/registration');
-         } else {
-         l.e("passport.serialize'dan alınan hatayı tanıyamadım !");
-         return _res.redirect('/login/registration');
-         }
-         }
-
-         // VT'den geçti serileşti o halde giriş sayfasına
-         l.i("Oldu tüm doğrulamalar.");
-         return _res.redirect('/');
-         });*/
     };
+
     var ldapAuthStrategy = new LdapAuthStrategy({
 
         server: {
