@@ -378,7 +378,7 @@ function APITahta() {
             .then(function (_res) {
 
                 function f_davetIletisiGonder(_tahta_id, _uid, _ePosta) {
-                    var EMail = require('../lib/email');
+                    var EMail = extensions.EMail;
                     var mail = new EMail("", "", "", true);
 
                     /** @type {OptionsTahta} */
