@@ -35,18 +35,6 @@ function APISehir() {
             });
     }
 
-    function f_api_sehir_tazele(_q, _r) {
-        //tüm şehirleri sisteme ekle
-        var arrSehirler = require("../../../public/json/sehirler.json").data;
-        db.sehir.f_db_sehir_ekle(arrSehirler)
-            .then(function () {
-                _r.send(200, mesaj.GET._200("", "Şehir ekle", "Şehirler BAŞARIYLA eklendi."));
-            })
-            .fail(function () {
-                _r.send(500, mesaj.GET._500("", "Şehir ekle", "Şehirler eklenemedi!"));
-            });
-
-    }
 
     function f_api_sehir_adlari(_q, _r) {
 
@@ -63,7 +51,6 @@ function APISehir() {
      * @class APISehir
      */
     return {
-        f_api_sehir_tazele: f_api_sehir_tazele,
         f_api_sehir_adlari: f_api_sehir_adlari,
         f_api_sehir_tumu: f_api_sehir_tumu,
         f_api_sehir_id: f_api_sehir_id

@@ -117,8 +117,6 @@ r.route('/tahtalar/:Tahta_Id(\\d+)/bolgeler/:Bolge_Id(\\d+)/sehirler/:Sehir_Id(\
 // endregion
 
 //region ŞEHİRLER
-r.route('/sehirler/tazele')
-    .get(v1.sehir.f_api_sehir_tazele);
 
 r.route('/sehirler')
     .get(v1.sehir.f_api_sehir_tumu);

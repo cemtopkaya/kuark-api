@@ -1122,7 +1122,7 @@ function APITahta() {
 
     // region ROLLER
     function f_api_rolleri_tazele(_q, _r) {
-        var json = require("../../../public/json/roller.json"),
+        var json = require("../../../../lib/roller.json"),
             kullanici_id = _q.session.ss.kullanici.Id;
 
         db.rol.f_db_rol_ekle(json.data, 0, kullanici_id)
