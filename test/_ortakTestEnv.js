@@ -1,5 +1,5 @@
 var path = require('path'),
-    serverModule = require('../src/server/app'),
+    serverModule = require('../src/app'),
     expressApp = serverModule.expressSetup(path.join(__dirname + '/public'), path.join(__dirname + '/views')),
     superagent = require('superagent'),
     supertest = require('supertest'),
