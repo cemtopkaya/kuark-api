@@ -1,7 +1,7 @@
 var express = require('express'),
     path = require('path'),
     Q = require('q'),
-    kontrol = require("../../../lib/ihaleKontrol"),
+    kontrol = require("../../lib/ihaleKontrol"),
     mesaj = require('../api/v1/API').API,
     r = express.Router(),
     util = require('util');

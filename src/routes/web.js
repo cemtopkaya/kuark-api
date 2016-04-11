@@ -1,7 +1,7 @@
 var express = require('express'),
     routerWeb = express.Router(),
     login = require('./login'),
-    ortak = require('../../../lib/ortak'),
+    ortak = require('../../lib/ortak'),
     passport = require('passport'),
     db = require('kuark-db')(),
     mesaj = require('../api/v1/API').API,

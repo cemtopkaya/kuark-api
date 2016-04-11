@@ -1,5 +1,5 @@
 var router = require('express').Router(),
-    ortak = require('../../../lib/ortak'),
+    ortak = require('../../lib/ortak'),
     extensions = require('kuark-extensions'),
     l = extensions.winstonConfig,
     routes = {

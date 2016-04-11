@@ -4,7 +4,7 @@ var express = require('express'),
     r = express.Router(),
     schema = require('kuark-schema'),
     mesaj = require('../api/v1/API').API,
-    ortak = require('../../../lib/ortak'),
+    ortak = require('../../lib/ortak'),
     extensions = require('kuark-extensions'),
     l = extensions.winstonConfig;
 
