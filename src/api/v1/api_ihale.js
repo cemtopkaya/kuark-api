@@ -17,7 +17,7 @@ function APIIhale() {
 
     // region İHALELERİ ÇEK
     //ihale bilgilerini ihale dünyasından çek
-    function f_api_ihale_tazele_id(_q, _r) {
+    function f_ihale_tazele_id(_q, _r) {
         //_q.session.destroy();
 
         console.log("tazele");
@@ -36,7 +36,7 @@ function APIIhale() {
     }
 
     //ihale bilgilerini sağlıkbank tan çek
-    function f_api_ihale_tazele_sb(_q, _r) {
+    function f_ihale_tazele_sb(_q, _r) {
         //_q.session.destroy();
 
         var sb = require('../../../batch/saglikbank');
@@ -53,7 +53,7 @@ function APIIhale() {
     // region İHALEYE KATILAN KURUMLAR
 
     /*İHALEYE KATILAN KURUMLAR*/
-    function f_api_ihale_kurum_tumu(_q, _r) {
+    function f_ihale_kurum_tumu(_q, _r) {
 
         var ihale_id = _q.params.Ihale_Id,
             tahta_id = _q.params.Tahta_Id;
@@ -124,7 +124,7 @@ function APIIhale() {
      * @param _q
      * @param _r
      */
-    function f_api_ihale_tumu_tahta_indeks_anahtar(_q, _r) {
+    function f_ihale_tumu_tahta_indeks_anahtar(_q, _r) {
 
         var tahta_id = _q.params.Tahta_Id;
         (_q.query.q
@@ -138,7 +138,7 @@ function APIIhale() {
             });
     }
 
-    function f_api_ihale_tumu_tahta_anahtarKelimelerine(_q, _r) {
+    function f_ihale_tumu_tahta_anahtarKelimelerine(_q, _r) {
 
         if (!_q.query.q) {
             _r.status(500).send(mesaj.GET._500("", "Kriter bilgisi BULUNAMADI.", "Tahtanın anahtar kelimelerine göre ihale bilgileri çekilemedi..."));
@@ -191,7 +191,7 @@ function APIIhale() {
      * @param _r
      * @returns {*}
      */
-    function f_api_ihale_yapan_kurumu(_q, _r) {
+    function f_ihale_yapan_kurumu(_q, _r) {
         var ihale_id = _q.params.Ihale_Id;
 
         return db.ihale.f_db_ihale_yapan_kurum(ihale_id)
@@ -203,7 +203,7 @@ function APIIhale() {
             });
     }
 
-    function f_api_ihale_yapan_kurumu_guncelle(_q, _r) {
+    function f_ihale_yapan_kurumu_guncelle(_q, _r) {
         var ihale_id = _q.params.Ihale_Id,
             kurum_id = _q.params.Kurum_Id;
 
@@ -224,7 +224,7 @@ function APIIhale() {
      * @param _q
      * @param _r
      */
-    function f_api_ihale_paylas(_q, _r) {
+    function f_ihale_paylas(_q, _r) {
         var paylas = _q.body;
 
         db.ihale.f_db_ihale_paylas(paylas)
@@ -243,7 +243,7 @@ function APIIhale() {
      * ihale:genel seti çekilir.
      * @returns {*}
      */
-    function f_api_ihaleler_genel(_q, _r) {
+    function f_ihaleler_genel(_q, _r) {
         var opts = {};
         opts.bArrKalemleri = false;
         opts.bYapanKurum = true;
@@ -258,7 +258,7 @@ function APIIhale() {
             });
     }
 
-    function f_api_tahta_ihale_id(_q, _r) {
+    function f_tahta_ihale_id(_q, _r) {
         var id = _q.params.Ihale_Id,
             tahta_id = _q.params.Tahta_Id;
 
@@ -276,7 +276,7 @@ function APIIhale() {
         });
     }
 
-    function f_api_ihale_yapilmaTarihineGore(_q, _r) {
+    function f_ihale_yapilmaTarihineGore(_q, _r) {
         var tarih1 = _q.params.Tarih1,
             tarih2 = _q.params.Tarih2,
             tahta_id = _q.params.Tahta_Id;
@@ -295,17 +295,17 @@ function APIIhale() {
      * @class APIIhale
      */
     return {
-        f_api_ihale_tumu_tahta_indeks_anahtar: f_api_ihale_tumu_tahta_indeks_anahtar,
-        f_api_ihale_paylas: f_api_ihale_paylas,
-        f_api_ihale_tazele_id: f_api_ihale_tazele_id,
-        f_api_ihale_tazele_sb: f_api_ihale_tazele_sb,
-        f_api_ihale_yapilmaTarihineGore: f_api_ihale_yapilmaTarihineGore,
-        f_api_ihale_yapan_kurumu: f_api_ihale_yapan_kurumu,
-        f_api_tahta_ihale_id: f_api_tahta_ihale_id,
-        f_api_ihaleler_genel: f_api_ihaleler_genel,
-        f_api_ihale_tumu_tahta_anahtarKelimelerine: f_api_ihale_tumu_tahta_anahtarKelimelerine,
-        f_api_ihale_kurum_tumu: f_api_ihale_kurum_tumu,
-        f_api_ihale_yapan_kurumu_guncelle: f_api_ihale_yapan_kurumu_guncelle
+        f_api_ihale_tumu_tahta_indeks_anahtar: f_ihale_tumu_tahta_indeks_anahtar,
+        f_api_ihale_paylas: f_ihale_paylas,
+        f_api_ihale_tazele_id: f_ihale_tazele_id,
+        f_api_ihale_tazele_sb: f_ihale_tazele_sb,
+        f_api_ihale_yapilmaTarihineGore: f_ihale_yapilmaTarihineGore,
+        f_api_ihale_yapan_kurumu: f_ihale_yapan_kurumu,
+        f_api_tahta_ihale_id: f_tahta_ihale_id,
+        f_api_ihaleler_genel: f_ihaleler_genel,
+        f_api_ihale_tumu_tahta_anahtarKelimelerine: f_ihale_tumu_tahta_anahtarKelimelerine,
+        f_api_ihale_kurum_tumu: f_ihale_kurum_tumu,
+        f_api_ihale_yapan_kurumu_guncelle: f_ihale_yapan_kurumu_guncelle
     };
 }
 

@@ -25,8 +25,8 @@ function APIKurum() {
     function f_elastic_sorgu(_query, _arama) {
         return db.elastic.f_search({
             method: "POST",
-            index: db.elastic.INDEKS.APP,
-            type: db.elastic.TIP.KURUM,
+            index: db.elastic.SABIT.INDEKS.APP,
+            type: db.elastic.SABIT.TIP.KURUM,
             size: _arama.Sayfalama.SatirSayisi,
             from: _arama.Sayfalama.Sayfa * _arama.Sayfalama.SatirSayisi,
             body: _query
@@ -87,7 +87,7 @@ function APIKurum() {
         }
     }
 
-    function f_api_kurum_tumu(_q, _r) {
+    function f_kurum_tumu(_q, _r) {
 
         (_q.UrlQuery.Aranan
             ? f_kurum_aranan(_q.params.Tahta_Id, _q.UrlQuery)
@@ -104,7 +104,7 @@ function APIKurum() {
      * @param _q
      * @param _r
      */
-    function f_api_kurum_tumu_genel(_q, _r) {
+    function f_kurum_tumu_genel(_q, _r) {
         console.log("f_api_kurum_tumu_genel");
 
         (_q.UrlQuery.Aranan
@@ -122,7 +122,7 @@ function APIKurum() {
      * @param _q
      * @param _r
      */
-    function f_api_kurum_tumu_tahta_ozel(_q, _r) {
+    function f_kurum_tumu_tahta_ozel(_q, _r) {
         var tahta_id = _q.params.Tahta_Id;
         db.kurum.f_db_kurum_tahta_aktif(tahta_id)
             .then(function (_res) {
@@ -136,7 +136,7 @@ function APIKurum() {
 
     // region KURUM BUL-EKLE-GÜNCELLE-SİL
 
-    function f_api_kurum_id(_q, _r) {
+    function f_kurum_id(_q, _r) {
         var id = _q.params.Kurum_Id;
 
         db.kurum.f_db_kurum_id(id)
@@ -147,7 +147,7 @@ function APIKurum() {
         });
     }
 
-    function f_api_kurum_ekle(_q, _r) {
+    function f_kurum_ekle(_q, _r) {
         var tahta_id = _q.params.Tahta_Id,
             kullanici_id = _q.session.ss.kullanici.Id,
             kurum = _q.body,
@@ -162,7 +162,7 @@ function APIKurum() {
             });
     }
 
-    function f_api_kurum_guncelle(_q, _r) {
+    function f_kurum_guncelle(_q, _r) {
         var tahta_id = _q.params.Tahta_Id,
             kullanici_id = _q.session.ss.kullanici.Id,
             kurum = _q.body,
@@ -178,7 +178,7 @@ function APIKurum() {
             });
     }
 
-    function f_api_kurum_sil(_q, _r) {
+    function f_kurum_sil(_q, _r) {
         var id = _q.params.Kurum_Id,
             tahta_id = _q.params.Tahta_Id,
             kullanici_id = _q.session.ss.kullanici.Id;
@@ -200,7 +200,7 @@ function APIKurum() {
     // endregion
 
     // region KURUMUN ÜRÜNLERİ
-    function f_api_kurum_urun_tumu(_q, _r) {
+    function f_kurum_urun_tumu(_q, _r) {
         var kurum_id = _q.params.Kurum_Id,
             tahta_id = _q.params.Tahta_Id;
 
@@ -216,7 +216,7 @@ function APIKurum() {
 
     // region KURUMUN ÜRÜNE VERDİĞİ TEKLİFLER
 
-    function f_api_kurumun_urune_verdigi_teklifler(_q, _r) {
+    function f_kurumun_urune_verdigi_teklifler(_q, _r) {
         var kurum_id = _q.params.Kurum_Id,
             tahta_id = _q.params.Tahta_Id,
             urun_id = _q.params.Urun_Id,
@@ -256,7 +256,7 @@ function APIKurum() {
      * @param _q
      * @param _r
      */
-    function f_api_kurum_paylas(_q, _r) {
+    function f_kurum_paylas(_q, _r) {
         var paylas = _q.body;
 
         db.kurum.f_db_kurum_paylas(paylas)
@@ -273,16 +273,16 @@ function APIKurum() {
      * @class APIKurum
      */
     return {
-        f_api_kurumun_urune_verdigi_teklifler: f_api_kurumun_urune_verdigi_teklifler,
-        f_api_kurum_tumu: f_api_kurum_tumu,
-        f_api_kurum_tumu_genel: f_api_kurum_tumu_genel,
-        f_api_kurum_urun_tumu: f_api_kurum_urun_tumu,
-        f_api_kurum_id: f_api_kurum_id,
-        f_api_kurum_ekle: f_api_kurum_ekle,
-        f_api_kurum_guncelle: f_api_kurum_guncelle,
-        f_api_kurum_sil: f_api_kurum_sil,
-        f_api_kurum_tumu_tahta_ozel: f_api_kurum_tumu_tahta_ozel,
-        f_api_kurum_paylas: f_api_kurum_paylas
+        f_api_kurumun_urune_verdigi_teklifler: f_kurumun_urune_verdigi_teklifler,
+        f_api_kurum_tumu: f_kurum_tumu,
+        f_api_kurum_tumu_genel: f_kurum_tumu_genel,
+        f_api_kurum_urun_tumu: f_kurum_urun_tumu,
+        f_api_kurum_id: f_kurum_id,
+        f_api_kurum_ekle: f_kurum_ekle,
+        f_api_kurum_guncelle: f_kurum_guncelle,
+        f_api_kurum_sil: f_kurum_sil,
+        f_api_kurum_tumu_tahta_ozel: f_kurum_tumu_tahta_ozel,
+        f_api_kurum_paylas: f_kurum_paylas
     };
 }
 

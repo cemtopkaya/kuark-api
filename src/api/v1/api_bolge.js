@@ -11,7 +11,7 @@ var /** @type {DBModel} */
  */
 function APIBolge() {
 
-    function f_api_bolge_id(_q, _r) {
+    function f_bolge_id(_q, _r) {
         var id = _q.params.Bolge_Id;
 
         db.bolge.f_db_bolge_id(id)
@@ -23,7 +23,7 @@ function APIBolge() {
             });
     }
 
-    function f_api_bolge_sehirleri_tumu(_q, _r) {
+    function f_bolge_sehirleri_tumu(_q, _r) {
 
         var id = _q.params.Bolge_Id,
             tahta_id = _q.params.Tahta_Id;
@@ -38,7 +38,7 @@ function APIBolge() {
         });
     }
 
-    function f_api_bolge_sehir_ekle(_q, _r) {
+    function f_bolge_sehir_ekle(_q, _r) {
         console.log("f_api_bolge_sehir_ekle");
 
         var bolge_id = _q.params.Bolge_Id,
@@ -55,7 +55,7 @@ function APIBolge() {
         });
     }
 
-    function f_api_bolge_sehir_sil(_q, _r) {
+    function f_bolge_sehir_sil(_q, _r) {
         console.log("f_api_bolge_sehir_sil");
 
         var bolge_id = _q.params.Bolge_Id,
@@ -72,7 +72,7 @@ function APIBolge() {
         });
     }
 
-    function f_api_bolge_tumu(_q, _r) {
+    function f_bolge_tumu(_q, _r) {
         var tahta_id = _q.params.Tahta_Id;
         db.bolge.f_db_bolge_tumu(tahta_id)
             .then(function (_aktif) {
@@ -83,7 +83,7 @@ function APIBolge() {
             });
     }
 
-    function f_api_bolge_ekle(_q, _r) {
+    function f_bolge_ekle(_q, _r) {
 
         var bolge = _q.body,
             tahta_id = _q.params.Tahta_Id;
@@ -97,7 +97,7 @@ function APIBolge() {
             });
     }
 
-    function f_api_bolge_guncelle(_q, _r) {
+    function f_bolge_guncelle(_q, _r) {
         var bolge = _q.body,
             tahta_id = _q.params.Tahta_Id;
 
@@ -112,7 +112,7 @@ function APIBolge() {
             });
     }
 
-    function f_api_bolge_sil(_q, _r) {
+    function f_bolge_sil(_q, _r) {
         var id = _q.params.Bolge_Id,
             tahta_id = _q.params.Tahta_Id;
         db.bolge.f_db_bolge_sil(id, tahta_id)
@@ -128,14 +128,14 @@ function APIBolge() {
      * @class APIBolge
      */
     return {
-        f_api_bolge_sehir_sil: f_api_bolge_sehir_sil,
-        f_api_bolge_sehir_ekle: f_api_bolge_sehir_ekle,
-        f_api_bolge_sehirleri_tumu: f_api_bolge_sehirleri_tumu,
-        f_api_bolge_tumu: f_api_bolge_tumu,
-        f_api_bolge_id: f_api_bolge_id,
-        f_api_bolge_ekle: f_api_bolge_ekle,
-        f_api_bolge_guncelle: f_api_bolge_guncelle,
-        f_api_bolge_sil: f_api_bolge_sil
+        f_api_bolge_sehir_sil: f_bolge_sehir_sil,
+        f_api_bolge_sehir_ekle: f_bolge_sehir_ekle,
+        f_api_bolge_sehirleri_tumu: f_bolge_sehirleri_tumu,
+        f_api_bolge_tumu: f_bolge_tumu,
+        f_api_bolge_id: f_bolge_id,
+        f_api_bolge_ekle: f_bolge_ekle,
+        f_api_bolge_guncelle: f_bolge_guncelle,
+        f_api_bolge_sil: f_bolge_sil
     }
 }
 

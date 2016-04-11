@@ -14,7 +14,7 @@ var /** @type {DBModel} */
  */
 function APIUrun() {
 
-    function f_api_urunle_teklif_verilen_ihale_sayisi(_q, _r) {
+    function f_urunle_teklif_verilen_ihale_sayisi(_q, _r) {
         var tahta_id = _q.params.Tahta_Id,
             urun_id = _q.params.Urun_Id,
             onay_durum_id = _q.query.onay_id,
@@ -82,7 +82,7 @@ function APIUrun() {
     }
 
     // region ÜRÜN EKLE-SİL-GÜNCELLE-TÜMÜ
-    function f_api_urun_tumu(_q, _r) {
+    function f_urun_tumu(_q, _r) {
         (_q.UrlQuery.Aranan
             ? f_aranan_urun(_q.params.Tahta_Id, _q.UrlQuery)
             : db.urun.f_db_urun_tumu(_q.params.Tahta_Id, _q.UrlQuery.Sayfalama))
@@ -94,7 +94,7 @@ function APIUrun() {
             });
     }
 
-    function f_api_urun_id(_q, _r) {
+    function f_urun_id(_q, _r) {
         var tahta_id = _q.params.Tahta_Id,
             urun_id = _q.params.Urun_Id;
 
@@ -108,7 +108,7 @@ function APIUrun() {
     }
 
 
-    function f_api_urun_ekle(_q, _r) {
+    function f_urun_ekle(_q, _r) {
         var urun = _q.body,
             tahta_id = _q.params.Tahta_Id,
             kullanici_id = _q.session.ss.kullanici.Id,
@@ -128,7 +128,7 @@ function APIUrun() {
             });
     }
 
-    function f_api_urun_guncelle(_q, _r) {
+    function f_urun_guncelle(_q, _r) {
         var urun = _q.body,
             tahta_id = _q.params.Tahta_Id,
             kullanici_id = _q.session.ss.kullanici.Id,
@@ -149,7 +149,7 @@ function APIUrun() {
             });
     }
 
-    function f_api_urun_sil(_q, _r) {
+    function f_urun_sil(_q, _r) {
         var id = _q.params.Urun_Id,
             tahta_id = _q.params.Tahta_Id,
             kullanici_id = _q.session.ss.kullanici.Id;
@@ -171,7 +171,7 @@ function APIUrun() {
     // endregion
 
     // region ANAHTAR KELİMELER
-    function f_api_urun_anahtar_tumu(req, res) {
+    function f_urun_anahtar_tumu(req, res) {
         var tahta_id = req.params.Tahta_Id,
             urun_id = req.params.Urun_Id;
 
@@ -185,7 +185,7 @@ function APIUrun() {
             });
     }
 
-    function f_api_urun_anahtar_ekle(req, res) {
+    function f_urun_anahtar_ekle(req, res) {
         var tahta_id = req.params.Tahta_Id,
             urun_id = req.params.Urun_Id,
             anahtar = req.body,
@@ -200,7 +200,7 @@ function APIUrun() {
             });
     }
 
-    function f_api_urun_anahtar_sil(req, res) {
+    function f_urun_anahtar_sil(req, res) {
         var tahta_id = req.params.Tahta_Id,
             urun_id = req.params.Urun_Id,
             anahtar = req.params.Anahtar_Id;
@@ -217,7 +217,7 @@ function APIUrun() {
     // endregion
 
     // region İLİŞKİLİ KURUM
-    function f_api_urun_iliskili_kurum_tumu(req, res) {
+    function f_urun_iliskili_kurum_tumu(req, res) {
         var tahta_id = req.params.Tahta_Id,
             urun_id = req.params.Urun_Id;
 
@@ -230,7 +230,7 @@ function APIUrun() {
         });
     }
 
-    function f_api_urun_iliskili_kurum_ekle(req, res) {
+    function f_urun_iliskili_kurum_ekle(req, res) {
         var tahta_id = req.params.Tahta_Id,
             urun_id = req.params.Urun_Id,
             kurum_id = req.params.Kurum_Id;
@@ -244,7 +244,7 @@ function APIUrun() {
         });
     }
 
-    function f_api_urun_iliskili_kurum_sil(req, res) {
+    function f_urun_iliskili_kurum_sil(req, res) {
         var tahta_id = req.params.Tahta_Id,
             urun_id = req.params.Urun_Id,
             kurum_id = req.params.Kurum_Id;
@@ -265,7 +265,7 @@ function APIUrun() {
      * @param _q
      * @param _r
      */
-    function f_api_urun_paylas(_q, _r) {
+    function f_urun_paylas(_q, _r) {
         var paylas = _q.body;
 
         db.urun.f_db_urun_paylas(paylas)
@@ -280,19 +280,19 @@ function APIUrun() {
      * @class APIUrun
      */
     return {
-        f_api_urunle_teklif_verilen_ihale_sayisi: f_api_urunle_teklif_verilen_ihale_sayisi,
-        f_api_urun_paylas: f_api_urun_paylas,
-        f_api_urun_iliskili_kurum_tumu: f_api_urun_iliskili_kurum_tumu,
-        f_api_urun_iliskili_kurum_ekle: f_api_urun_iliskili_kurum_ekle,
-        f_api_urun_iliskili_kurum_sil: f_api_urun_iliskili_kurum_sil,
-        f_api_urun_tumu: f_api_urun_tumu,
-        f_api_urun_id: f_api_urun_id,
-        f_api_urun_ekle: f_api_urun_ekle,
-        f_api_urun_guncelle: f_api_urun_guncelle,
-        f_api_urun_sil: f_api_urun_sil,
-        f_api_urun_anahtar_tumu: f_api_urun_anahtar_tumu,
-        f_api_urun_anahtar_ekle: f_api_urun_anahtar_ekle,
-        f_api_urun_anahtar_sil: f_api_urun_anahtar_sil
+        f_api_urunle_teklif_verilen_ihale_sayisi: f_urunle_teklif_verilen_ihale_sayisi,
+        f_api_urun_paylas: f_urun_paylas,
+        f_api_urun_iliskili_kurum_tumu: f_urun_iliskili_kurum_tumu,
+        f_api_urun_iliskili_kurum_ekle: f_urun_iliskili_kurum_ekle,
+        f_api_urun_iliskili_kurum_sil: f_urun_iliskili_kurum_sil,
+        f_api_urun_tumu: f_urun_tumu,
+        f_api_urun_id: f_urun_id,
+        f_api_urun_ekle: f_urun_ekle,
+        f_api_urun_guncelle: f_urun_guncelle,
+        f_api_urun_sil: f_urun_sil,
+        f_api_urun_anahtar_tumu: f_urun_anahtar_tumu,
+        f_api_urun_anahtar_ekle: f_urun_anahtar_ekle,
+        f_api_urun_anahtar_sil: f_urun_anahtar_sil
     };
 }
 

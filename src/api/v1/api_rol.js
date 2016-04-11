@@ -1,7 +1,7 @@
 'use strict';
 
 var /** @type {DBModel} */
-     db = require('kuark-db')(),
+    db = require('kuark-db')(),
     mesaj = require('./API').API;
 
 /**
@@ -11,7 +11,7 @@ var /** @type {DBModel} */
  */
 function APIRol() {
 
-    function f_api_rol_bolgesi_ekle(_q, _r) {
+    function f_rol_bolgesi_ekle(_q, _r) {
         var islem = "Rolle ilişkili bölge ekle",
             rol_id = _q.params.Rol_Id,
             tahta_id = _q.params.Tahta_Id,
@@ -25,7 +25,7 @@ function APIRol() {
         });
     }
 
-    function f_api_rol_bolgesi_sil(_q, _r) {
+    function f_rol_bolgesi_sil(_q, _r) {
         var islem = "Rolle ilişkili bölge sil",
             rol_id = _q.params.Rol_Id,
             tahta_id = _q.params.Tahta_Id,
@@ -39,7 +39,7 @@ function APIRol() {
         });
     }
 
-    function f_api_rol_bolgeleri(_q, _r) {
+    function f_rol_bolgeleri(_q, _r) {
         var islem = "Rolle ilişkili bölgeler",
             rol_id = _q.params.Rol_Id,
             tahta_id = _q.params.Tahta_Id;
@@ -53,7 +53,7 @@ function APIRol() {
     };
 
 
-    function f_api_rol_by_id(_q, _r) {
+    function f_rol_by_id(_q, _r) {
         var islem = "Rol Çekilmesi",
             rol_id = _q.params.Rol_Id,
             tahta_id = _q.params.Tahta_Id;
@@ -66,7 +66,7 @@ function APIRol() {
         });
     }
 
-    function f_api_rol_tumu(_q, _r) {
+    function f_rol_tumu(_q, _r) {
         var islem = "Rollerin Çekilmesi",
             tahta_id = _q.params.Tahta_Id;
 
@@ -79,7 +79,7 @@ function APIRol() {
         });
     }
 
-    function f_api_rol_ekle(_q, _r) {
+    function f_rol_ekle(_q, _r) {
         var rol = _q.body,
             tahta_id = _q.params.Tahta_Id,
             islem = "Rol Ekleme",
@@ -94,7 +94,7 @@ function APIRol() {
             });
     }
 
-    function f_api_rol_guncelle(_q, _r) {
+    function f_rol_guncelle(_q, _r) {
         var rol = _q.body,
             tahta_id = _q.params.Tahta_Id,
             rol_id = _q.params.Rol_Id,
@@ -110,7 +110,7 @@ function APIRol() {
             });
     }
 
-    function f_api_rol_sil_tahtadan(_q, _r) {
+    function f_rol_sil_tahtadan(_q, _r) {
         var tahta_id = parseInt(_q.params.Tahta_Id),
             rol_id = parseInt(_q.params.Rol_Id),
             islem = "Rol Silme";
@@ -135,7 +135,7 @@ function APIRol() {
             })
     }
 
-    function f_api_rol_sil_uyeden(_q, _r) {
+    function f_rol_sil_uyeden(_q, _r) {
         var tahta_id = parseInt(_q.params.Tahta_Id),
             rol_id = parseInt(_q.params.Rol_Id),
             uye_id = parseInt(_q.params.Uye_Id),
@@ -153,15 +153,15 @@ function APIRol() {
      * @class APIRol
      */
     return {
-        f_api_rol_bolgesi_ekle: f_api_rol_bolgesi_ekle,
-        f_api_rol_bolgesi_sil: f_api_rol_bolgesi_sil,
-        f_api_rol_bolgeleri: f_api_rol_bolgeleri,
-        f_api_rol_by_id: f_api_rol_by_id,
-        f_api_rol_tumu: f_api_rol_tumu,
-        f_api_rol_ekle: f_api_rol_ekle,
-        f_api_rol_guncelle: f_api_rol_guncelle,
-        f_api_rol_sil_tahtadan: f_api_rol_sil_tahtadan,
-        f_api_rol_sil_uyeden: f_api_rol_sil_uyeden
+        f_api_rol_bolgesi_ekle: f_rol_bolgesi_ekle,
+        f_api_rol_bolgesi_sil: f_rol_bolgesi_sil,
+        f_api_rol_bolgeleri: f_rol_bolgeleri,
+        f_api_rol_by_id: f_rol_by_id,
+        f_api_rol_tumu: f_rol_tumu,
+        f_api_rol_ekle: f_rol_ekle,
+        f_api_rol_guncelle: f_rol_guncelle,
+        f_api_rol_sil_tahtadan: f_rol_sil_tahtadan,
+        f_api_rol_sil_uyeden: f_rol_sil_uyeden
     };
 }
 

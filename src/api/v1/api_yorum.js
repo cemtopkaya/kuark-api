@@ -11,7 +11,7 @@ var /** @type {DBModel} */
  */
 function APIYorum() {
 
-    function f_api_yorum_ekle(_q, _r) {
+    function f_yorum_ekle(_q, _r) {
         var yorum = _q.body,
             kul_id = _q.params.Kul_Id,
             tahta_id = _q.params.Tahta_Id;
@@ -29,7 +29,7 @@ function APIYorum() {
      * @class APIYorum
      */
     return {
-        f_api_yorum_ekle: f_api_yorum_ekle
+        f_api_yorum_ekle: f_yorum_ekle
     };
 }
 

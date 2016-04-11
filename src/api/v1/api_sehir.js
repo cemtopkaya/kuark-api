@@ -11,7 +11,7 @@ var /** @type {DBModel} */
  */
 function APISehir() {
 
-    function f_api_sehir_tumu(req, res) {
+    function f_sehir_tumu(req, res) {
         db.sehir.f_db_sehir_tumu()
             .then(function (_aktif) {
                 res.send(200, mesaj.GET._200(_aktif, "Şehirler", "Tüm şehirler başarıyla çekildi."));
@@ -23,7 +23,7 @@ function APISehir() {
             });
     }
 
-    function f_api_sehir_id(_q, _r) {
+    function f_sehir_id(_q, _r) {
         var id = _q.params.Sehir_Id;
 
         db.sehir.f_db_sehir_id(id)
@@ -36,7 +36,7 @@ function APISehir() {
     }
 
 
-    function f_api_sehir_adlari(_q, _r) {
+    function f_sehir_adlari(_q, _r) {
 
         db.sehir.f_db_sehir_adlari()
             .then(function (_sehirler) {
@@ -51,9 +51,9 @@ function APISehir() {
      * @class APISehir
      */
     return {
-        f_api_sehir_adlari: f_api_sehir_adlari,
-        f_api_sehir_tumu: f_api_sehir_tumu,
-        f_api_sehir_id: f_api_sehir_id
+        f_api_sehir_adlari: f_sehir_adlari,
+        f_api_sehir_tumu: f_sehir_tumu,
+        f_api_sehir_id: f_sehir_id
     };
 }
 

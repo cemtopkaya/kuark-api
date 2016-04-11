@@ -1,10 +1,10 @@
 'use strict';
 
 var /** @type {DBModel} */
-     db = require('kuark-db')(),
-    schema=require('kuark-schema'),
-    extensions=require('kuark-extensions'),
-    exception=require('kuark-istisna'),
+    db = require('kuark-db')(),
+    schema = require('kuark-schema'),
+    extensions = require('kuark-extensions'),
+    exception = require('kuark-istisna'),
     mesaj = require('./API').API;
 
 /**
@@ -15,7 +15,7 @@ var /** @type {DBModel} */
 function APIKalem() {
 
     // region KALEM TAKİP
-    function f_api_kalem_takip_tumu(_q, _r) {
+    function f_kalem_takip_tumu(_q, _r) {
         var tahta_id = _q.params.Tahta_Id;
 
         if (!_q.query.q) {
@@ -46,7 +46,7 @@ function APIKalem() {
         });
     }
 
-    function f_api_kalem_takip_ekle(_q, _r) {
+    function f_kalem_takip_ekle(_q, _r) {
         var tahta_id = _q.params.Tahta_Id,
             satir_id = _q.params.Satir_Id;
 
@@ -59,7 +59,7 @@ function APIKalem() {
             });
     }
 
-    function f_api_kalem_takip_sil(_q, _r) {
+    function f_kalem_takip_sil(_q, _r) {
         var tahta_id = _q.params.Tahta_Id,
             satir_id = _q.params.Satir_Id;
 
@@ -76,7 +76,7 @@ function APIKalem() {
 
     // region SATIR İŞLEMLERİ- (EKLE-GÜNCELLE-SİL-BUL)
 
-    function f_api_kalem_id(_q, _r) {
+    function f_kalem_id(_q, _r) {
         var satir_id = _q.params.Satir_Id,
             ihale_id = _q.params.Ihale_Id,
             tahta_id = _q.params.Tahta_Id;
@@ -92,11 +92,11 @@ function APIKalem() {
                 _r.status(200).send(mesaj.GET._200(_bulunansatir, "", "kalem bilgisi başarıyla çekildi."));
             })
             .fail(function () {
-            _r.status(500).send(mesaj.GET._500("", "", "kalem bilgisi bulunamadı!"));
-        });
+                _r.status(500).send(mesaj.GET._500("", "", "kalem bilgisi bulunamadı!"));
+            });
     }
 
-    function f_api_kalem_ekle(_q, _r) {
+    function f_kalem_ekle(_q, _r) {
 
         var kalem = _q.body,
             db_kalem = schema.f_suz_klonla(schema.SCHEMA.DB.KALEM, kalem),
@@ -114,7 +114,7 @@ function APIKalem() {
             });
     }
 
-    function f_api_kalem_guncelle(_q, _r) {
+    function f_kalem_guncelle(_q, _r) {
 
         var kalem = _q.body,
             db_kalem = schema.f_suz_klonla(schema.SCHEMA.DB.KALEM, kalem),
@@ -133,7 +133,7 @@ function APIKalem() {
             });
     }
 
-    function f_api_kalem_sil(_q, _r) {
+    function f_kalem_sil(_q, _r) {
         var tahta_id = _q.params.Tahta_Id,
             ihale_id = _q.params.Ihale_Id,
             satir_id = _q.params.Satir_Id,
@@ -158,7 +158,7 @@ function APIKalem() {
      * @param _q
      * @param _r
      */
-    function f_api_kalem_onay_durum_guncelle(_q, _r) {
+    function f_kalem_onay_durum_guncelle(_q, _r) {
         var tahta_id = _q.params.Tahta_Id,
             kalem_id = _q.params.Satir_Id,
             ihale_id = _q.params.Ihale_Id,
@@ -178,7 +178,7 @@ function APIKalem() {
         });
     }
 
-    function f_api_kalem_onay_durumu(_q, _r) {
+    function f_kalem_onay_durumu(_q, _r) {
         var tahta_id = _q.params.Tahta_Id,
             kalem_id = _q.params.Satir_Id,
             kullanici_id = _q.session.ss.kullanici.Id;
@@ -271,7 +271,7 @@ function APIKalem() {
      * @param _q
      * @param _r
      */
-    function f_api_kalem_tumu_tahta_indeks_anahtar(_q, _r) {
+    function f_kalem_tumu_tahta_indeks_anahtar(_q, _r) {
         console.log("f_api_kalem_tumu_tahta_indeks_anahtar");
 
         var tahta_id = _q.params.Tahta_Id,
@@ -296,16 +296,16 @@ function APIKalem() {
      * @class APIKalem
      */
     return {
-        f_api_kalem_tumu_tahta_indeks_anahtar: f_api_kalem_tumu_tahta_indeks_anahtar,
-        f_api_kalem_takip_tumu: f_api_kalem_takip_tumu,
-        f_api_kalem_takip_sil: f_api_kalem_takip_sil,
-        f_api_kalem_takip_ekle: f_api_kalem_takip_ekle,
-        f_api_kalem_onay_durumu: f_api_kalem_onay_durumu,
-        f_api_kalem_onay_durum_guncelle: f_api_kalem_onay_durum_guncelle,
-        f_api_kalem_sil: f_api_kalem_sil,
-        f_api_kalem_guncelle: f_api_kalem_guncelle,
-        f_api_kalem_ekle: f_api_kalem_ekle,
-        f_api_kalem_id: f_api_kalem_id
+        f_api_kalem_tumu_tahta_indeks_anahtar: f_kalem_tumu_tahta_indeks_anahtar,
+        f_api_kalem_takip_tumu: f_kalem_takip_tumu,
+        f_api_kalem_takip_sil: f_kalem_takip_sil,
+        f_api_kalem_takip_ekle: f_kalem_takip_ekle,
+        f_api_kalem_onay_durumu: f_kalem_onay_durumu,
+        f_api_kalem_onay_durum_guncelle: f_kalem_onay_durum_guncelle,
+        f_api_kalem_sil: f_kalem_sil,
+        f_api_kalem_guncelle: f_kalem_guncelle,
+        f_api_kalem_ekle: f_kalem_ekle,
+        f_api_kalem_id: f_kalem_id
     };
 }
 

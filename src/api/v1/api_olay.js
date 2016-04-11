@@ -11,7 +11,7 @@ var /** @type {DBModel} */
  */
 function APIOlay() {
 
-    function f_api_olay_tumu(_q, _r) {
+    function f_olay_tumu(_q, _r) {
         _r.status(200).send(mesaj.GET._200(db.olay.SABIT.OLAYLAR, "", "Olaylar başarıyla çekildi"));
     }
 
@@ -19,7 +19,7 @@ function APIOlay() {
      * @class APIOlay
      */
     return {
-        f_api_olay_tumu: f_api_olay_tumu
+        f_api_olay_tumu: f_olay_tumu
     };
 }
 

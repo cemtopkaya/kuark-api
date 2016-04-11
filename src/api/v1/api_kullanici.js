@@ -21,7 +21,7 @@ function APIKullanici() {
      * @param _q
      * @param _r
      */
-    function f_api_kullanici_haber_tumu(_q, _r) {
+    function f_kullanici_haber_tumu(_q, _r) {
         var kul_id = _q.params.Kul_Id;
         db.haber.f_db_haber_tumu(0, kul_id, true, false, false)
             .then(function (arr) {
@@ -32,7 +32,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_bildirim_tumu(_q, _r) {
+    function f_kullanici_bildirim_tumu(_q, _r) {
         var defer,
             kul_id = _q.params.Kul_Id,
             yeni = _q.query.c == "true",
@@ -93,7 +93,7 @@ function APIKullanici() {
     }
 
 
-    function f_api_kullanici_gorev_son_detayi_ile(_q, _r) {
+    function f_kullanici_gorev_son_detayi_ile(_q, _r) {
 
         var kul_id = _q.params.Kul_Id,
             adet = _q.query.per_page ? parseInt(_q.query.per_page) : 10,
@@ -112,7 +112,7 @@ function APIKullanici() {
      * @param _q
      * @param _r
      */
-    function f_api_kullanici_haber_okunan(_q, _r) {
+    function f_kullanici_haber_okunan(_q, _r) {
         var kul_id = _q.params.Kul_Id;
         db.haber.f_db_haber_tumu(0, kul_id, false, false, true)
             .then(function (arr) {
@@ -123,7 +123,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_dikkat_guncelle(_q, _r) {
+    function f_kullanici_dikkat_guncelle(_q, _r) {
         //güncelleme demek okundu olarak işaretlenmesi demektir
         var kul_id = _q.params.Kul_Id,
             dikkat_id = _q.params.Dikkat_Id;
@@ -136,7 +136,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_gorev_detay(_q, _r) {
+    function f_kullanici_gorev_detay(_q, _r) {
 
         var kul_id = _q.params.Kul_Id,
             id = _q.params.Gorev_Id,
@@ -152,7 +152,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_gorev_id(_q, _r) {
+    function f_kullanici_gorev_id(_q, _r) {
 
         var kul_id = _q.params.Kul_Id,
             id = _q.params.Gorev_Id,
@@ -168,7 +168,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_gorev_guncelle(_q, _r) {
+    function f_kullanici_gorev_guncelle(_q, _r) {
 
         var kul_id = _q.params.Kul_Id,
             id = _q.params.Gorev_Id;
@@ -181,7 +181,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_gorev_detay_ekle(_q, _r) {
+    function f_kullanici_gorev_detay_ekle(_q, _r) {
 
         var kul_id = _q.params.Kul_Id,
             id = _q.params.Gorev_Id,
@@ -195,7 +195,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_dikkat_sil(_q, _r) {
+    function f_kullanici_dikkat_sil(_q, _r) {
         var kul_id = _q.params.Kul_Id,
             dikkat_id = _q.params.Dikkat_Id;
         db.dikkat.f_db_dikkat_sil(kul_id, dikkat_id)
@@ -207,7 +207,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_ileti_guncelle(_q, _r) {
+    function f_kullanici_ileti_guncelle(_q, _r) {
         //güncelleme demek okundu olarak işaretlenmesi demektir
         var kul_id = _q.params.Kul_Id,
             id = _q.params.Ileti_Id;
@@ -220,7 +220,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_ileti_sil(_q, _r) {
+    function f_kullanici_ileti_sil(_q, _r) {
         var kul_id = _q.params.Kul_Id,
             id = _q.params.Ileti_Id;
         db.ileti.f_db_ileti_sil(kul_id, id)
@@ -237,7 +237,7 @@ function APIKullanici() {
      * @param _q
      * @param _r
      */
-    function f_api_kullanici_haber_ekle(_q, _r) {
+    function f_kullanici_haber_ekle(_q, _r) {
         var haber = _q.body,
             kul_id = _q.params.Kul_Id;
 
@@ -250,7 +250,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_haber_guncelle(_q, _r) {
+    function f_kullanici_haber_guncelle(_q, _r) {
 
         var id = _q.params.Haber_Id,
             kul_id = _q.params.Kul_Id;
@@ -264,7 +264,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_haber_sil(_q, _r) {
+    function f_kullanici_haber_sil(_q, _r) {
         var id = _q.params.Haber_Id,
             kul_id = _q.params.Kul_Id;
 
@@ -285,7 +285,7 @@ function APIKullanici() {
      * @param _q
      * @param _r
      */
-    function f_api_kullanici_tahtalari(_q, _r) {
+    function f_kullanici_tahtalari(_q, _r) {
         // 1. Kullanıcının tahtalarını çekelim
         // 2. Session içindeki bilgilerine tahtalarını ekleyelim
         // 3. Cevabı dönelim
@@ -305,7 +305,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_tahta_ekle(_q, _r) {
+    function f_kullanici_tahta_ekle(_q, _r) {
         var kul_id = _q.session.ss.kullanici.Id,
             tahta = _q.body,
             /**
@@ -331,7 +331,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_tahta_guncelle(_q, _r) {
+    function f_kullanici_tahta_guncelle(_q, _r) {
 
         var kul_id = _q.params.Kul_Id,
             tahta_id = _q.params.Tahta_Id,
@@ -348,7 +348,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_tahtadan_ayril(_q, _r) {
+    function f_kullanici_tahtadan_ayril(_q, _r) {
         var kul_id = _q.params.Kul_Id,
             tahta_id = _q.params.Tahta_Id;
 
@@ -366,7 +366,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_tahta_sil(_q, _r) {
+    function f_kullanici_tahta_sil(_q, _r) {
         var kul_id = _q.params.Kul_Id,
             tahta_id = _q.params.Tahta_Id;
 
@@ -387,7 +387,7 @@ function APIKullanici() {
     // endregion
 
     // region KULLANICI PROFİL BİLGİSİ
-    function f_api_kullanici_profil(_q, _r) {
+    function f_kullanici_profil(_q, _r) {
         var kul_id = _q.params.Kul_Id;
 
         db.kullanici.f_db_kullanici_profil(kul_id)
@@ -398,7 +398,7 @@ function APIKullanici() {
         });
     }
 
-    function f_api_kullanici_profil_ekle(_q, _r) {
+    function f_kullanici_profil_ekle(_q, _r) {
         var profil = _q.body;
         var kul_id = _q.params.Kul_Id;
 
@@ -413,7 +413,7 @@ function APIKullanici() {
     // endregion
 
     // region KULLANICI BÖLGELERİ
-    function f_api_kullanici_bolge_tumu(_q, _r) {
+    function f_kullanici_bolge_tumu(_q, _r) {
         var kul_id = _q.params.Kul_Id;
         db.kullanici.f_db_kullanici_bolge_tumu(kul_id)
             .then(function (_aktif) {
@@ -424,7 +424,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_bolge_ekle(_q, _r) {
+    function f_kullanici_bolge_ekle(_q, _r) {
         var bolge_id = _q.body;
         var kul_id = _q.params.Kul_Id;
 
@@ -436,7 +436,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_bolge_sil(_q, _r) {
+    function f_kullanici_bolge_sil(_q, _r) {
         var kul_id = _q.params.Kul_Id;
         var bolge_id = _q.params.Bolge_Id;
 
@@ -451,7 +451,7 @@ function APIKullanici() {
     // endregion
 
     // region KULLANICI YETKİLERİ
-    function f_api_kullanici_yetki_tumu(_q, _r) {
+    function f_kullanici_yetki_tumu(_q, _r) {
         var kul_id = _q.params.Kul_Id;
         db.kullanici.f_db_kullanici_yetki_tumu(kul_id)
             .then(function (_aktif) {
@@ -462,7 +462,7 @@ function APIKullanici() {
         });
     }
 
-    function f_api_kullanici_yetki_ekle(_q, _r) {
+    function f_kullanici_yetki_ekle(_q, _r) {
         var yetki_id = _q.body;
         var kul_id = _q.params.Kul_Id;
 
@@ -474,7 +474,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_yetki_guncelle(_q, _r) {
+    function f_kullanici_yetki_guncelle(_q, _r) {
         var yetki = _q.body,
             kul_id = _q.params.Kul_Id;
 
@@ -486,7 +486,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_yetki_sil(_q, _r) {
+    function f_kullanici_yetki_sil(_q, _r) {
         var kul_id = _q.params.Kul_Id,
             yetki_id = _q.params.Yetki_Id;
 
@@ -505,7 +505,7 @@ function APIKullanici() {
     /**
      * Gelen şifre sessiondaki şifre ile aynı ise giriş yapabilir. yoksa hata mesajı gösterilir
      */
-    function f_api_kullanici_pass(_q, _r) {
+    function f_kullanici_pass(_q, _r) {
         var kullanici = _q.session.ss.kullanici;
         if (_q.params.Kul_Id == kullanici.Id) {
 
@@ -521,7 +521,7 @@ function APIKullanici() {
         }
     }
 
-    function f_api_kullanici_session(_q, _r) {
+    function f_kullanici_session(_q, _r) {
         console.log("JSON.stringify(_q.session.ss.kullanici)");
         console.log(JSON.stringify(_q.session.ss.kullanici));
 
@@ -532,7 +532,7 @@ function APIKullanici() {
         _r.status(200).send(mesaj.GET._200(sonuc, "", "Kullanıcı bilgisi başarıyla çekildi."));
     }
 
-    function f_api_kullanici_id(_q, _r) {
+    function f_kullanici_id(_q, _r) {
         var id = _q.params.Kul_Id;
         db.kullanici.f_db_kullanici_id(id)
             .then(function (_bulunan) {
@@ -544,7 +544,7 @@ function APIKullanici() {
         });
     }
 
-    function f_api_kullanici_ekle(_q, _r) {
+    function f_kullanici_ekle(_q, _r) {
         var kullanici = _q.body;
 
         db.kullanici.f_db_kullanici_ekle(kullanici)
@@ -556,7 +556,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_oturum_durumu_ekle(_q, _r) {
+    function f_kullanici_oturum_durumu_ekle(_q, _r) {
         var kul_id = _q.params.Kul_Id,
             durum_id = _q.params.Durum_Id;
 
@@ -569,7 +569,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_guncelle(_q, _r) {
+    function f_kullanici_guncelle(_q, _r) {
         var kullanici = _q.body,
             db_kullanici = schema.f_suz_klonla(schema.SCHEMA.DB.KULLANICI, kullanici);
 
@@ -582,7 +582,7 @@ function APIKullanici() {
             });
     }
 
-    function f_api_kullanici_sil(_q, _r) {
+    function f_kullanici_sil(_q, _r) {
         var id = _q.params.Kul_Id;
         db.kullanici.f_db_kullanici_sil(id)
             .then(function (_dbResults) {
@@ -593,7 +593,7 @@ function APIKullanici() {
     }
 
     /* Active Directory Kullanıcılarını bulur */
-    function f_api_ad_kullanicilarini_bul(_q, _r) {
+    function f_ad_kullanicilarini_bul(_q, _r) {
         var ad = require('../../ldap/AD')('adminservices', 'q1w2e3r4');
 
         ad.f_findUsers(_q.params.cn)
@@ -610,43 +610,43 @@ function APIKullanici() {
      * @class APIKullanici
      */
     return {
-        f_api_kullanici_gorev_id: f_api_kullanici_gorev_id,
-        f_api_kullanici_gorev_son_detayi_ile: f_api_kullanici_gorev_son_detayi_ile,
-        f_api_kullanici_gorev_guncelle: f_api_kullanici_gorev_guncelle,
-        f_api_kullanici_pass: f_api_kullanici_pass,
-        f_api_kullanici_gorev_detay: f_api_kullanici_gorev_detay,
-        f_api_kullanici_gorev_detay_ekle: f_api_kullanici_gorev_detay_ekle,
-        f_api_kullanici_dikkat_guncelle: f_api_kullanici_dikkat_guncelle,
-        f_api_kullanici_dikkat_sil: f_api_kullanici_dikkat_sil,
-        f_api_kullanici_ileti_guncelle: f_api_kullanici_ileti_guncelle,
-        f_api_kullanici_ileti_sil: f_api_kullanici_ileti_sil,
-        f_api_kullanici_bildirim_tumu: f_api_kullanici_bildirim_tumu,
-        f_api_kullanici_oturum_durumu_ekle: f_api_kullanici_oturum_durumu_ekle,
-        f_api_kullanici_haber_sil: f_api_kullanici_haber_sil,
-        f_api_kullanici_haber_guncelle: f_api_kullanici_haber_guncelle,
-        f_api_kullanici_haber_ekle: f_api_kullanici_haber_ekle,
-        f_api_kullanici_haber_okunan: f_api_kullanici_haber_okunan,
-        f_api_kullanici_haber_tumu: f_api_kullanici_haber_tumu,
-        f_api_kullanici_profil: f_api_kullanici_profil,
-        f_api_kullanici_profil_ekle: f_api_kullanici_profil_ekle,
-        f_api_kullanici_tahta_ekle: f_api_kullanici_tahta_ekle,
-        f_api_kullanici_tahtalari: f_api_kullanici_tahtalari,
-        f_api_kullanici_tahta_guncelle: f_api_kullanici_tahta_guncelle,
-        f_api_kullanici_tahta_sil: f_api_kullanici_tahta_sil,
-        f_api_kullanici_bolge_tumu: f_api_kullanici_bolge_tumu,
-        f_api_kullanici_bolge_ekle: f_api_kullanici_bolge_ekle,
-        f_api_kullanici_bolge_sil: f_api_kullanici_bolge_sil,
-        f_api_kullanici_yetki_tumu: f_api_kullanici_yetki_tumu,
-        f_api_kullanici_yetki_ekle: f_api_kullanici_yetki_ekle,
-        f_api_kullanici_yetki_guncelle: f_api_kullanici_yetki_guncelle,
-        f_api_kullanici_yetki_sil: f_api_kullanici_yetki_sil,
-        f_api_kullanici_session: f_api_kullanici_session,
-        f_api_kullanici_ekle: f_api_kullanici_ekle,
-        f_api_kullanici_id: f_api_kullanici_id,
-        f_api_kullanici_guncelle: f_api_kullanici_guncelle,
-        f_api_kullanici_sil: f_api_kullanici_sil,
-        f_api_ad_kullanicilarini_bul: f_api_ad_kullanicilarini_bul,
-        f_api_kullanici_tahtadan_ayril: f_api_kullanici_tahtadan_ayril
+        f_api_kullanici_gorev_id: f_kullanici_gorev_id,
+        f_api_kullanici_gorev_son_detayi_ile: f_kullanici_gorev_son_detayi_ile,
+        f_api_kullanici_gorev_guncelle: f_kullanici_gorev_guncelle,
+        f_api_kullanici_pass: f_kullanici_pass,
+        f_api_kullanici_gorev_detay: f_kullanici_gorev_detay,
+        f_api_kullanici_gorev_detay_ekle: f_kullanici_gorev_detay_ekle,
+        f_api_kullanici_dikkat_guncelle: f_kullanici_dikkat_guncelle,
+        f_api_kullanici_dikkat_sil: f_kullanici_dikkat_sil,
+        f_api_kullanici_ileti_guncelle: f_kullanici_ileti_guncelle,
+        f_api_kullanici_ileti_sil: f_kullanici_ileti_sil,
+        f_api_kullanici_bildirim_tumu: f_kullanici_bildirim_tumu,
+        f_api_kullanici_oturum_durumu_ekle: f_kullanici_oturum_durumu_ekle,
+        f_api_kullanici_haber_sil: f_kullanici_haber_sil,
+        f_api_kullanici_haber_guncelle: f_kullanici_haber_guncelle,
+        f_api_kullanici_haber_ekle: f_kullanici_haber_ekle,
+        f_api_kullanici_haber_okunan: f_kullanici_haber_okunan,
+        f_api_kullanici_haber_tumu: f_kullanici_haber_tumu,
+        f_api_kullanici_profil: f_kullanici_profil,
+        f_api_kullanici_profil_ekle: f_kullanici_profil_ekle,
+        f_api_kullanici_tahta_ekle: f_kullanici_tahta_ekle,
+        f_api_kullanici_tahtalari: f_kullanici_tahtalari,
+        f_api_kullanici_tahta_guncelle: f_kullanici_tahta_guncelle,
+        f_api_kullanici_tahta_sil: f_kullanici_tahta_sil,
+        f_api_kullanici_bolge_tumu: f_kullanici_bolge_tumu,
+        f_api_kullanici_bolge_ekle: f_kullanici_bolge_ekle,
+        f_api_kullanici_bolge_sil: f_kullanici_bolge_sil,
+        f_api_kullanici_yetki_tumu: f_kullanici_yetki_tumu,
+        f_api_kullanici_yetki_ekle: f_kullanici_yetki_ekle,
+        f_api_kullanici_yetki_guncelle: f_kullanici_yetki_guncelle,
+        f_api_kullanici_yetki_sil: f_kullanici_yetki_sil,
+        f_api_kullanici_session: f_kullanici_session,
+        f_api_kullanici_ekle: f_kullanici_ekle,
+        f_api_kullanici_id: f_kullanici_id,
+        f_api_kullanici_guncelle: f_kullanici_guncelle,
+        f_api_kullanici_sil: f_kullanici_sil,
+        f_api_ad_kullanicilarini_bul: f_ad_kullanicilarini_bul,
+        f_api_kullanici_tahtadan_ayril: f_kullanici_tahtadan_ayril
     };
 }
 
