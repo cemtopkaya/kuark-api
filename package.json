@@ -1,6 +1,6 @@
 {
   "name": "kuark-api",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Kuark application's api",
   "main": "index.js",
   "directories": {
@@ -48,8 +48,8 @@
     "postpublish": "npm run update:all:packagejson",
     "_______________________________________________________________ UPDATE KUARK PACKAGES": "__________",
     "update:all:packagejson": "npm run ncu:app",
-    "ncu:app": "ncu /^kuark-/ -u --packageFile ../../App/package.json",
-    "u:all": "npm update kuark-api kuark-batch kuark-db kuark-extensions kuark-istisna kuark-app"
+    "ncu:app": "ncu kuark-api -u --packageFile ./../../App/package.json",
+    "u:all": "npm update kuark-schema kuark-batch kuark-db kuark-extensions kuark-istisna"
   },
   "repository": {
     "type": "git",
@@ -83,11 +83,11 @@
     "emailjs": "^1.0.4",
     "express-session": "^1.13.0",
     "google-calendar": "^1.3.2",
-    "kuark-batch": "0.0.19",
+    "kuark-batch": "0.0.20",
     "kuark-db": "0.0.11",
-    "kuark-extensions": "0.0.39",
-    "kuark-istisna": "0.0.25",
-    "kuark-schema": "0.0.18",
+    "kuark-extensions": "0.0.41",
+    "kuark-istisna": "0.0.27",
+    "kuark-schema": "0.0.20",
     "lodash": "^4.8.2",
     "node-uuid": "1.4.7",
     "node-xlsx": "^0.6.0",
