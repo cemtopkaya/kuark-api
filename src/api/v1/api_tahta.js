@@ -15,7 +15,7 @@ var /** @type {DBModel} */
  */
 function APITahta() {
 
-    var uuid = require('node-uuid');
+    var uuid = require('uuid');
 
     // region TAHTA İŞLEMLERİ
 
